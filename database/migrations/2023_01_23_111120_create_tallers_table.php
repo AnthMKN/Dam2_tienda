@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('tallers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_pedido');
+            $table->text('descripcion');
+            $table->boolean('reparado');
+            $table->text('comentario_tec');
+            $table->string('num_serie');
             $table->timestamps();
+
+            $table->foreign('id_pedido')->references('id')->on('pedido')
         });
     }
 
