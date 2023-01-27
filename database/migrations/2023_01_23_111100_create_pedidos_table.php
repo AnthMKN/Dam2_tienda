@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('id_cliente');
+            $table->foreign('id_cliente')->references('id')->on('clientes');
+
+            $table->boolean('confirmado')->nullable()->default(false);
+            $table->double('descuento')->nullable()->default(0.0);
+
             $table->timestamps();
         });
     }

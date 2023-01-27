@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('articulos', function (Blueprint $table) {
             $table->id();
+            
+            $table->string('nombre');
+            $table->unsignedBigInteger('id_proveedor');
+            $table->foreign('id_proveedor')->references('id')->on('proveedors');
+
+            $table->double('precio');
+            $table->integer('stock');
+            $table->string('categoria');
+            $table->text('descripcion');
+            $table->text('foto');
+
             $table->timestamps();
         });
     }
