@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('telefono');
             $table->string('email');
             $table->string('direccion');
-            $table->string('dni');
+            $table->string('dni')->unique();
             $table->timestamps();
         });
     }
