@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->integer('telefono');
             $table->string('email');
-            $table->string('nif');
+            $table->string('nif')->unique();
             $table->string('direccion');
 
             $table->timestamps();
