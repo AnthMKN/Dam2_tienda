@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->integer('telefono');
+            $table->string('email');
+            $table->string('direccion');
+            $table->string('dni')->unique();
             $table->timestamps();
         });
     }

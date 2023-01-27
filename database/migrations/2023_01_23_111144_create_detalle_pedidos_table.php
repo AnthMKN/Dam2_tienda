@@ -15,7 +15,19 @@ return new class extends Migration
     {
         Schema::create('detalle_pedidos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_pedido');
+            $table->unsignedBigInteger('id_articulo');
+            $table->integer('cantidad');
+            $table->integer('precio');
             $table->timestamps();
+
+            $table->foreign('id_pedido')->references('id')->on('pedido')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('id_articulo')->references('id')->on('users')
+                ->onDelete('cascade');
+                ->onUpdate('cascade');
         });
     }
 
