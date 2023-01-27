@@ -21,12 +21,12 @@ return new class extends Migration
             $table->integer('precio');
             $table->timestamps();
 
-            $table->foreign('id_pedido')->references('id')->on('pedido')
+            $table->foreign('id_pedido')->references('id')->on('pedidos')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('id_articulo')->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->foreign('id_articulo')->references('id')->on('articulos')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
     }
