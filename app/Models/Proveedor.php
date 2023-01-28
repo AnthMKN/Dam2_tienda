@@ -8,4 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Proveedor extends Model
 {
     use HasFactory;
+
+    protected $table = "proveedors";
+
+    protected $fillable = [
+        'nombre',
+        'telefono',
+        'email',
+        'nif',
+        'direccion',
+    ];
+
+    protected $hidden = [
+        'id'
+    ];
+
+    public function obtenerProveedores(){
+        return Proveedor::all();
+    }
+
+    public function obtenerProveedorPorId($id){
+        return Proveedor::find($id);
+    }
+
 }
