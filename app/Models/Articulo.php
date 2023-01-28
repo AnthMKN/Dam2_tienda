@@ -38,4 +38,7 @@ class Articulo extends Model
         return $this->belongsTo(Proovedor::class, "id_proveedor", "id");
     }
 
+    public function detalle_pedido() {
+        return $this->hasMany(Grupo::class, "id_articulo", "id");
+    }
 }
