@@ -31,5 +31,8 @@ class Cliente extends Model
         return Cliente::find($id);
     }
 
+    public function pedidos() {
+        return $this->hasMany(Pedido::class,'id');
+    }
 }
 
