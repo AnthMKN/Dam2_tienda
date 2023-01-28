@@ -17,12 +17,12 @@ class Articulo extends Model
         'stock',
         'categoria',
         'descripcion',
-        'fotos'
+        'fotos',
     ];
 
     protected $hidden = [
-        'id'
-        'id_proveedor'
+        'id',
+        'id_proveedor',
     ];
 
     public function obtenerArticulos(){
