@@ -31,4 +31,8 @@ class Proveedor extends Model
         return Proveedor::find($id);
     }
 
+    public function articulo() {
+        return $this->hasMany(Articulo::class,'id');
+    }
+
 }

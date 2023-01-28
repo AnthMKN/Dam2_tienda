@@ -35,10 +35,10 @@ class Articulo extends Model
 
     public function proveedor()
     {
-        return $this->belongsTo(Proovedor::class, "id_proveedor", "id");
+        return $this->belongsTo(Proovedor::class, "id");
     }
 
     public function detalle_pedido() {
-        return $this->hasMany(Grupo::class, "id_articulo", "id");
+        return $this->hasMany(DetallePedido::class, "id");
     }
 }

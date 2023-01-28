@@ -14,6 +14,7 @@ class Pedido extends Model
     protected $fillable = [
         'confirmado',
         'descuento',
+        'created_at'
     ];
 
     protected $hidden = [
