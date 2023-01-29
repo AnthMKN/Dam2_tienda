@@ -28,6 +28,22 @@ Route::get('/', function () {
     }
 });
 
+Route::get('/articulos/hola', '\App\Http\Controllers\ArticuloController@hola')->name("articulos.hola");
+
+Route::get('/articulos/inicio', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("articulos.index");
+
+Route::get('/articulos/crear', '\App\Http\Controllers\ArticuloController@create')->name('articulos.crear');
+
+//Route::get('articulos/{articulo}' , function($articulo){
+//    return $articulo;
+//});
+
+//Route::get('articulos/add', function () {
+//    return "En esta pegina se añaden articulos";
+//});
+
+//Route::post('articulos/{grupoid}/store', [ArticuloController::class, "store"])->name("grupos.storemasiva");
+
 Auth::routes();
 
 

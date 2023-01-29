@@ -6,8 +6,9 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route("grupos.create") }}" type="button" class="btn btn-outline-dark">Crear</a>
-                    <a href="{{ route("amigos.create") }}" type="button" class="btn btn-outline-dark">Unirse</a>
+                    <a href="{{ route("articulos.crear") }}" type="button" class="btn btn-outline-dark">Añadir Articulo</a>
+                    <!--<a href="{{ route("amigos.create") }}" type="button" class="btn btn-outline-dark">Unirse</a>-->
+                    
                 </div>
 
                 <div class="card-body">
