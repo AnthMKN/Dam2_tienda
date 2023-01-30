@@ -6,7 +6,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route("articulos.crear") }}" type="button" class="btn btn-outline-dark">Añadir Articulo</a>
+                    <a href="{{ route("articulo.create") }}" type="button" class="btn btn-outline-dark">Añadir Articulo</a>
                     <!--<a href="{{ route("amigos.create") }}" type="button" class="btn btn-outline-dark">Unirse</a>-->
                     
                 </div>
@@ -22,9 +22,9 @@
                         <div class="row">
 
 
-                            @foreach(auth()->user()->grupos as $grupo)
+                            @foreach($articulos as $articulo)
 
-                                <x-tarjetagrupo :grupo="$grupo" :botonver=true />
+                                <x-tarjetaarticulo :articulo="$articulo" :botonver=true />
 
                             @endforeach
                         </div>

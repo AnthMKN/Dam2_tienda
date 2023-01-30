@@ -13,16 +13,16 @@ class Articulo extends Model
 
     protected $fillable = [
         'nombre',
+        'id_proveedor',
         'precio',
         'stock',
         'categoria',
         'descripcion',
-        'fotos',
+        'foto',
     ];
 
     protected $hidden = [
         'id',
-        'id_proveedor',
     ];
 
     public function obtenerArticulos(){

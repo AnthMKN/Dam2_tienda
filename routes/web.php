@@ -6,9 +6,11 @@ use App\Http\Controllers\GrupoController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Grupo;
+use App\Models\Articulo;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SorteoController;
 use App\Http\Controllers\IntromasivaController;
+use App\Http\Controllers\ArticuloController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,17 +24,18 @@ use App\Http\Controllers\IntromasivaController;
 
 Route::get('/', function () {
     if (auth()->user()) {
-        return view("home");
+        return view("home", ["articulos" => Articulo::all()]);
     } else {
         return view('welcome'); // Venía con welcome
     }
 });
 
-Route::get('/articulos/hola', '\App\Http\Controllers\ArticuloController@hola')->name("articulos.hola");
+//Route::get('/articulos/hola', '\App\Http\Controllers\ArticuloController@hola')->name("articulos.hola");
 
-Route::get('/articulos/inicio', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("articulos.index");
+Route::get('/articulos/inicio', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("articulos.inicio");
 
-Route::get('/articulos/crear', '\App\Http\Controllers\ArticuloController@create')->name('articulos.crear');
+Route::resource("articulo", ArticuloController::class);
+
 
 //Route::get('articulos/{articulo}' , function($articulo){
 //    return $articulo;

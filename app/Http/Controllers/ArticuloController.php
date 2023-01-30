@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articulo;
 use Illuminate\Http\Request;
 
 class ArticuloController extends Controller
@@ -10,12 +11,8 @@ class ArticuloController extends Controller
     public function index()
     {
         //
-        return view("home");
+        return view("home", ["articulos" => Articulo::all()]);
         //return  response()->json([Articulo::all()], 200);
-    }
-
-    public function hola(){//metodo de prueba
-        return "Esta este es el inicio de articulos.";
     }
 
     /**
@@ -32,10 +29,10 @@ class ArticuloController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreGrupoRequest $request
+     * @param  \App\Http\Requests\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreArticuloRequest $request)
+    public function store(Request $request)
     {
         //
         $articulo = Articulo::create([
@@ -43,7 +40,7 @@ class ArticuloController extends Controller
             "id_proveedor" => $request->id_proveedor,
             "precio" => $request->precio,
             "stock" => $request->stock,
-            "categoria" => $request->comentario,
+            "categoria" => $request->categoria,
             "descripcion" => $request->descripcion,
             "foto" => $request->foto,
         ]);

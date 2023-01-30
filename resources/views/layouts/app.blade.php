@@ -53,20 +53,15 @@
                     </a>
                     <ul class="dropdown-menu" data-bs-popper="static">
 <!-- Si añades .show a la clase dropdown-menu se abre al dibujarse -->
-                      @auth
-                      @if ((auth()->check()) && auth()->user()->hasRole('admin'))
 
-                        <li><a class="dropdown-item" href="{{ route('usuariostodos') }}">
-                              {{ "Usuarios" }}
-                          </a>
-                        </li>
+                      
+
                           <li>
-                          <a class="dropdown-item" href="{{ url('/listagrupos') }}">
-                              {{ "Grupos" }}
+                          <a class="dropdown-item" href="{{ url('/listaarticulos') }}">
+                              {{ "Articulos" }}
                           </a>
                         </li>
-                      @endif
-                  @endauth
+
 
 
                     </ul>

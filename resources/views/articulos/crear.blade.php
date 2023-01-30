@@ -15,104 +15,64 @@
                             </div>
                         @endif
 
-                            <form class="form-floating" action="{{ route("grupos.store") }}" method="post">
+                            <form class="form-floating" action="{{ route("articulo.store") }}" method="post">
                                 @csrf
                                 @method("POST")
                                 <div class="form-group row">
-                                    <label for="name" class="col-4 col-form-label">Nombre Articulo:</label>
+                                    <label for="nombre" class="col-4 col-form-label">Nombre Articulo:</label>
                                     <div class="col-8">
-                                        <input id="name" name="name" placeholder="nombre del grupo" type="text" class="form-control" value="{{ old("name") }}">
+                                        <input id="nombre" name="nombre" placeholder="nombre del producto" type="text" class="form-control">
                                     </div>
-                                    @if ($errors->has("name"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("name") as $error1)
-                                                {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="col-4 col-form-label">Proveedor:</label>
+                                    <label for="id_proveedor" class="col-4 col-form-label">Proveedor:</label>
                                     <div class="col-8">
-                                        <input id="name" name="name" placeholder="proovedor" type="text" class="form-control" value="{{ old("name") }}">
+                                        <input id="id_proveedor" name="id_proveedor" placeholder="1" type="text" class="form-control">
                                     </div>
-                                    @if ($errors->has("name"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("name") as $error1)
-                                                {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    
                                 </div>
                                 <div class="form-group row">
-                                    <label for="importe" class="col-4 col-form-label">Precio:</label>
+                                    <label for="precio" class="col-4 col-form-label">Precio:</label>
                                     <div class="col-8">
-                                        <input id="importe" name="importe" placeholder="0" type="text" class="form-control" value="">
+                                        <input id="precio" name="precio" placeholder="0" type="text" class="form-control">
                                     </div>
-                                    @if ($errors->has("importe"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("importe") as $error1)
-                                            {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="importe" class="col-4 col-form-label">Stock:</label>
+                                    <label for="stock" class="col-4 col-form-label">Stock:</label>
                                     <div class="col-8">
-                                        <input id="importe" name="importe" placeholder="0" type="text" class="form-control" value="">
+                                        <input id="stock" name="stock" placeholder="0" type="text" class="form-control">
                                     </div>
-                                    @if ($errors->has("importe"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("importe") as $error1)
-                                            {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                   
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="importe" class="col-4 col-form-label">Categoria</label>
+                                    <label for="categoria" class="col-4 col-form-label">Categoria:</label>
                                     <div class="col-8">
-                                        <input id="importe" name="importe" placeholder="Placa Base" type="text" class="form-control" value="">
+                                        <input id="categoria" name="categoria" placeholder="categoria" type="text" class="form-control">
                                     </div>
-                                    @if ($errors->has("importe"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("importe") as $error1)
-                                            {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-4 col-form-label" for="url">URL Imagen:</label>
+                                    <label for="descripcion" class="col-4 col-form-label" for="comentario">Descripcion:</label>
                                     <div class="col-8">
-                                        <textarea id="url" name="comentario" cols="40" rows="6" class="form-control">{{ old("url") }}</textarea>
+                                        <textarea id="descripcion" name="descripcion" cols="40" rows="6" class="form-control"></textarea>
                                     </div>
-                                    @if ($errors->has("comentario"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("comentario") as $error1)
-                                                {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-4 col-form-label" for="comentario">Descripcion:</label>
+                                    <label for="foto" class="col-4 col-form-label" for="url">URL Imagen:</label>
                                     <div class="col-8">
-                                        <textarea id="comentario" name="comentario" cols="40" rows="6" class="form-control">{{ old("comentario") }}</textarea>
+                                        <textarea id="foto" name="foto" cols="40" rows="6" class="form-control"></textarea>
                                     </div>
-                                    @if ($errors->has("comentario"))
-                                        <div class="alert alert-danger" role="alert">
-                                            @foreach($errors->get("comentario") as $error1)
-                                                {{ $error1 }}
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                   
                                 </div>
+
+                                
                                 <div class="form-group row">
                                     <div class="offset-4 col-8">
                                         <button type="submit" class="btn btn-primary">Añadir</button>
