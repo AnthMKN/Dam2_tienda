@@ -19,7 +19,7 @@
                                 @csrf
                                 @method("POST")
                                 <div class="form-group row">
-                                    <label for="name" class="col-4 col-form-label">Nombre del grupo:</label>
+                                    <label for="name" class="col-4 col-form-label">Nombre Articulo:</label>
                                     <div class="col-8">
                                         <input id="name" name="name" placeholder="nombre del grupo" type="text" class="form-control" value="{{ old("name") }}">
                                     </div>
@@ -32,9 +32,22 @@
                                     @endif
                                 </div>
                                 <div class="form-group row">
-                                    <label for="importe" class="col-4 col-form-label">Importe:</label>
+                                    <label for="name" class="col-4 col-form-label">Proveedor:</label>
                                     <div class="col-8">
-                                        <input id="importe" name="importe" placeholder="Valor aprox del regalo" type="text" class="form-control" value="">
+                                        <input id="name" name="name" placeholder="proovedor" type="text" class="form-control" value="{{ old("name") }}">
+                                    </div>
+                                    @if ($errors->has("name"))
+                                        <div class="alert alert-danger" role="alert">
+                                            @foreach($errors->get("name") as $error1)
+                                                {{ $error1 }}
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group row">
+                                    <label for="importe" class="col-4 col-form-label">Precio:</label>
+                                    <div class="col-8">
+                                        <input id="importe" name="importe" placeholder="0" type="text" class="form-control" value="">
                                     </div>
                                     @if ($errors->has("importe"))
                                         <div class="alert alert-danger" role="alert">
@@ -44,31 +57,51 @@
                                         </div>
                                     @endif
                                 </div>
+
                                 <div class="form-group row">
-                                    <div class="input-group">
-                                        <span class="input-group-text">Sorteo</span>
-                                        <input id="fechasorteo" name="fechasorteo" placeholder="fecha del sorteo" type="date" class="form-control" value="">
-                                        <span class="input-group-text">Entrega de regalos</span>
-                                        <input id="fechaentregaregalos" name="fechaentregaregalos" placeholder="fecha de entrega de los regalos" type="date" class="form-control" value="">
+                                    <label for="importe" class="col-4 col-form-label">Stock:</label>
+                                    <div class="col-8">
+                                        <input id="importe" name="importe" placeholder="0" type="text" class="form-control" value="">
                                     </div>
-                                    @if ($errors->has("fechasorteo"))
-                                    <div class="alert alert-danger" role="alert">
-                                        @foreach($errors->get("fechasorteo") as $error1)
-                                        {{ $error1 }}
-                                        @endforeach
-                                    </div>
-                                    @endif
-                                    @if ($errors->has("fechaentregaregalos"))
-                                    <div class="alert alert-danger" role="alert">
-                                        @foreach($errors->get("fechaentregaregalos") as $error1)
-                                        {{ $error1 }}
-                                        @endforeach
-                                    </div>
+                                    @if ($errors->has("importe"))
+                                        <div class="alert alert-danger" role="alert">
+                                            @foreach($errors->get("importe") as $error1)
+                                            {{ $error1 }}
+                                            @endforeach
+                                        </div>
                                     @endif
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-4 col-form-label" for="comentario">Comentario:</label>
+                                    <label for="importe" class="col-4 col-form-label">Categoria</label>
+                                    <div class="col-8">
+                                        <input id="importe" name="importe" placeholder="Placa Base" type="text" class="form-control" value="">
+                                    </div>
+                                    @if ($errors->has("importe"))
+                                        <div class="alert alert-danger" role="alert">
+                                            @foreach($errors->get("importe") as $error1)
+                                            {{ $error1 }}
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label" for="url">URL Imagen:</label>
+                                    <div class="col-8">
+                                        <textarea id="url" name="comentario" cols="40" rows="6" class="form-control">{{ old("url") }}</textarea>
+                                    </div>
+                                    @if ($errors->has("comentario"))
+                                        <div class="alert alert-danger" role="alert">
+                                            @foreach($errors->get("comentario") as $error1)
+                                                {{ $error1 }}
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-4 col-form-label" for="comentario">Descripcion:</label>
                                     <div class="col-8">
                                         <textarea id="comentario" name="comentario" cols="40" rows="6" class="form-control">{{ old("comentario") }}</textarea>
                                     </div>
@@ -82,7 +115,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="offset-4 col-8">
-                                        <button type="submit" class="btn btn-primary">Crear</button>
+                                        <button type="submit" class="btn btn-primary">Añadir</button>
                                     </div>
                                 </div>
                             </form>
