@@ -24,28 +24,16 @@ use App\Http\Controllers\ArticuloController;
 
 Route::get('/', function () {
     if (auth()->user()) {
-        return view("home", ["articulos" => Articulo::all()]);
+        return view('home'); 
     } else {
-        return view('welcome'); // Venía con welcome
+        return view('welcome'); 
     }
 });
 
-//Route::get('/articulos/hola', '\App\Http\Controllers\ArticuloController@hola')->name("articulos.hola");
-
+Route::get('/home', [ArticuloController::class, 'index'])->name("home");
 Route::get('/articulos/inicio', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("articulos.inicio");
 
 Route::resource("articulo", ArticuloController::class);
-
-
-//Route::get('articulos/{articulo}' , function($articulo){
-//    return $articulo;
-//});
-
-//Route::get('articulos/add', function () {
-//    return "En esta pegina se añaden articulos";
-//});
-
-//Route::post('articulos/{grupoid}/store', [ArticuloController::class, "store"])->name("grupos.storemasiva");
 
 Auth::routes();
 
@@ -67,7 +55,7 @@ Route::group(['middleware' => ['role:admin']], function () {
  });
 
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    //Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get("grupos/{grupoid}/sortear", [SorteoController::class, 'sortear'])->name("grupos.sortear");
     Route::get("grupos/{grupoid}/anularsorteo", [SorteoController::class, 'anularsorteo'])->name("grupos.anularsorteo");
     Route::resource("grupos", GrupoController::class);

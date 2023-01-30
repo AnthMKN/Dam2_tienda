@@ -10,9 +10,7 @@ class ArticuloController extends Controller
     //
     public function index()
     {
-        //
         return view("home", ["articulos" => Articulo::all()]);
-        //return  response()->json([Articulo::all()], 200);
     }
 
     /**
