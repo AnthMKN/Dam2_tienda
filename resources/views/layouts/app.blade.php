@@ -39,10 +39,7 @@
 
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/articulos/inicio') }}">Articulos</a>
+                    <a class="nav-link" href="{{ url('/home') }}">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Clientes</a>
@@ -54,16 +51,16 @@
                     <ul class="dropdown-menu" data-bs-popper="static">
 <!-- Si añades .show a la clase dropdown-menu se abre al dibujarse -->
 
-                      
-
                           <li>
                           <a class="dropdown-item" href="{{ url('/listaarticulos') }}">
-                              {{ "Articulos" }}
+                              {{ "Añadir Cliente" }}
                           </a>
                         </li>
-
-
-
+                        <li>
+                          <a class="dropdown-item" href="{{ url('/listaarticulos') }}">
+                              {{ "Añadir Poveedor" }}
+                          </a>
+                        </li>
                     </ul>
                   </li>
                 </ul>

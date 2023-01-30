@@ -3,7 +3,9 @@
     <div class="card text-center">
         <div class="card-body">
             <h5 class="card-title">{{ $articulo->nombre }}</h5>
-
+            <div>
+                <img src={{$articulo->foto}} width="200px" height="200px">
+            </div>
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
                 @if ($botonver)
                     <a href="{{ route('articulo.show', ["articulo" => $articulo->id]) }}" class="btn btn-outline-primary">Ver</a>
