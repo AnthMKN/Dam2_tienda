@@ -10,7 +10,7 @@ class ArticuloController extends Controller
     public function index()
     {
         //
-        return "Esta es la pagina principal de la app";
+        return view("home");
         //return  response()->json([Articulo::all()], 200);
     }
 
