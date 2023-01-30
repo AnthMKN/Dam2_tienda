@@ -7,10 +7,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Grupo;
 use App\Models\Articulo;
+use App\Models\Cliente;
+use App\Models\Proveedor;
+use App\Models\Pedido;
+use App\Models\DetallePedido;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SorteoController;
 use App\Http\Controllers\IntromasivaController;
-use App\Http\Controllers\ArticuloController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,18 +25,28 @@ use App\Http\Controllers\ArticuloController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/index', function () {
     if (auth()->user()) {
-        return view('home'); 
+        return view('welcome'); 
     } else {
         return view('welcome'); 
     }
 });
-
-Route::get('/home', [ArticuloController::class, 'index'])->name("home");
+//Rutas de articulo
+Route::get('/', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("home");
+Route::get('/home', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("home");
 Route::get('/articulos/inicio', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("articulos.inicio");
+Route::resource("articulo", \App\Http\Controllers\ArticuloController::class);
 
-Route::resource("articulo", ArticuloController::class);
+//Esto para empezar, por ir quitando cosas pendientes
+//Rutas de cliente
+Route::resource("cliente", \App\Http\Controllers\ClienteController::class);
+
+//Rutas de proveedores
+Route::resource("proveedor", \App\Http\Controllers\ProveedorController::class);
+
+//Rutas de pedidos
+Route::resource("pedido", \App\Http\Controllers\PedidoController::class);
 
 Auth::routes();
 
