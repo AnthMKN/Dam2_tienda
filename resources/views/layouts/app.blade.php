@@ -44,6 +44,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Clientes</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Proveedores</a>
+                  </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                       Administración
