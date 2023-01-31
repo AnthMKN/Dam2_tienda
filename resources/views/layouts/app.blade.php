@@ -124,13 +124,6 @@
         <main class="py-4">
             @yield('content')
         </main>
-
-
-        <footer class="mt-auto text-black-50">
-            <p>Aplicación creada por amgelin</p>
-          </footer>
-
-
     </div>
 </body>
 </html>
