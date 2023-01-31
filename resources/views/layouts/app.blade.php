@@ -42,7 +42,7 @@
                     <a class="nav-link" href="{{ url('/home') }}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Clientes</a>
+                    <a class="nav-link" href="{{ url('/cliente') }}">Clientes</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/') }}">Proveedores</a>
@@ -55,7 +55,7 @@
 <!-- Si añades .show a la clase dropdown-menu se abre al dibujarse -->
 
                           <li>
-                          <a class="dropdown-item" href="{{ url('/listaarticulos') }}">
+                          <a class="dropdown-item" href="{{ route("cliente.create") }}">
                               {{ "Añadir Cliente" }}
                           </a>
                         </li>

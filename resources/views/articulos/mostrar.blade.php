@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
-
+                    <a href="{{ route("home") }}" type="button" class="btn btn-primary">Editar</a>
+                    <a href="{{ route("home") }}" type="button" class="btn btn-primary">Añadir Carrito</a>
                 </div>
 
                 <div class="card-body">
@@ -22,9 +23,9 @@
 
                 <x-tarjetagrupo :$articulo="articulos" :botonver=false />
 
-
                 <div class="card-body">
                         <div>
+                            <img src={{$articulo->foto}} align="right" width="300px" height="300px">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -34,10 +35,8 @@
                                         <p>Stock: {{$articulo->stock}}</p>
                                         <p>Categoria: {{$articulo->categoria}}</p>
                                         <p>Descripcion: {{$articulo->descripcion}}</p>
-                                        <img src={{$articulo->foto}} width="200px" height="200px">
                                 </thead>
                             </table>
-
                         </div>
 
                 </div>
