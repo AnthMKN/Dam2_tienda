@@ -10,14 +10,12 @@
                     </div>
                     <div class="card-body">
                         <ol class="list-group list-group-numbered">
-                            @foreach ($clientes as $cliente)
+                            @foreach ($proveedores as $proveedor)
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                     <div class="ms-2 me-auto">
-                                        <div class="fw-bold">{{ $cliente->nombre }}</div>
-                                        {{ $cliente->email }}                                    
+                                        <div class="fw-bold">{{ $proveedor->nombre }}</div>
+                                        {{ $proveedor->email }}                                    
                                     </div>
-                                    <div align="right"><a href="{{ route("cliente.edit", ["cliente" -> $cliente->id])}}" type="button" class="btn btn-outline-dark">Editar</a></div>
-                                </li>
                             @endforeach
                         </ol>
                     </div>

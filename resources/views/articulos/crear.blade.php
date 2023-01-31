@@ -28,10 +28,15 @@
                                 <div class="form-group row">
                                     <label for="id_proveedor" class="col-4 col-form-label">Proveedor:</label>
                                     <div class="col-8">
-                                        <input id="id_proveedor" name="id_proveedor" placeholder="1" type="text" class="form-control">
+                                        <select id="id_proveedor" name="id_proveedor" class="col-4 col-form-label" id="lang">
+                                            @foreach ($proveedores as $proveedor)
+                                            <option value ={{$proveedor->id}}>{{$proveedor->nombre}}</option>
+                                            @endforeach
+                                        </select>   
                                     </div>
                                     
                                 </div>
+
                                 <div class="form-group row">
                                     <label for="precio" class="col-4 col-form-label">Precio:</label>
                                     <div class="col-8">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
@@ -14,7 +15,7 @@ class ProveedorController extends Controller
     public function index()
     {
         //
-        return "Aqui aparecen los proveedores";
+        return view("proveedor/todos",["proveedores"=>Proveedor::all()]);
     }
 
     /**
@@ -22,9 +23,9 @@ class ProveedorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()    
     {
-        //
+        return view("proveedor/crear");
     }
 
     /**
