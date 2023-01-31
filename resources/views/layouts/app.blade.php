@@ -26,7 +26,7 @@
 
         <nav class="navbar navbar-expand-md bg-light navbar-light bg-white shadow-sm"">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/about') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +38,6 @@
 
 
                 <ul class="navbar-nav me-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/home') }}">Home</a>
-                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/cliente') }}">Clientes</a>
                   </li>
