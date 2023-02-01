@@ -31,7 +31,7 @@
                                     <tr>
                                         <h2> {{$articulo->nombre}}</h2>
                                         <p>Proveedor: {{$articulo->id_proveedor}}</p>
-                                        <p>Precio: {{$articulo->Precio}}</p>
+                                        <p>Precio: {{$articulo->precio}}€</p>
                                         <p>Stock: {{$articulo->stock}}</p>
                                         <p>Categoria: {{$articulo->categoria}}</p>
                                         <p>Descripcion: {{$articulo->descripcion}}</p>
