@@ -68,7 +68,7 @@ class ArticuloController extends Controller
     public function edit($id)
     {
         //
-        return view("articulos.editar",["articulo" => $articulo]);
+        return view("articulos.editar",["articulo" => Articulo::find($id)], ["proveedores" => Proveedor::all()]);
     }
 
     /**
@@ -78,10 +78,21 @@ class ArticuloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreArticuloRequest $request, $id)
+    
+    public function update(StoreArticuloRequest $request, $id) 
     {
-        //
-        return "Aqui va la pagina para actualizar articulos";
+        $articulo = Articulo::find($id);
+
+        $articulo->nombre = $request->nombre;
+        $articulo->id_proveedor = $request->id_proveedor; 
+        $articulo->precio = $request->precio;
+        $articulo->stock = $request->stock;
+        $articulo->categoria = $request->categoria;
+        $articulo->descripcion = $request->descripcion;
+        $articulo->foto = $request->foto;
+
+        $articulo->save();
+        return redirect("home");
     }
 
     /**

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
-                    <a href="{{ route("home") }}" type="button" class="btn btn-primary">Editar</a>
+                    <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" type="button" class="btn btn-primary">Editar</a>
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Añadir Carrito</a>
                 </div>
 
