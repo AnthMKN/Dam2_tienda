@@ -68,8 +68,7 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
         return view("clientes.editar",["cliente" => Cliente::find($id)]);
     }
 
@@ -80,10 +79,18 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) 
     {
-        //
-        return "Aqui va la pagina para actualizar clientes";
+        $cliente = Articulo::find($id);
+    
+        $cliente->nombre = $request->nombre;
+        $cliente->telefono = $request->telefono; 
+        $cliente->email = $request->email;
+        $cliente->dni = $request->dni;
+        $cliente->direccion = $request->direccion;
+    
+        $cliente->save();
+        return redirect("home");
     }
 
     /**

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
-                    <a href="{{ route("home") }}" type="button" class="btn btn-primary">Editar</a>
+                    <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" type="button" class="btn btn-primary">Editar</a>
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Añadir Carrito</a>
                 </div>
 
@@ -31,7 +31,7 @@
                                     <tr>
                                         <h2> {{$articulo->nombre}}</h2>
                                         <p>Proveedor: {{$articulo->id_proveedor}}</p>
-                                        <p>Precio: {{$articulo->Precio}}</p>
+                                        <p>Precio: {{$articulo->precio}}€</p>
                                         <p>Stock: {{$articulo->stock}}</p>
                                         <p>Categoria: {{$articulo->categoria}}</p>
                                         <p>Descripcion: {{$articulo->descripcion}}</p>

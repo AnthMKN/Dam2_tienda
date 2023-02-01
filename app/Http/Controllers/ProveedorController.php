@@ -79,10 +79,18 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) 
     {
-        //
-        return "Aqui va la pagina para actualizar proveedores";
+        $proovedor = Articulo::find($id);
+    
+        $proovedor->nombre = $request->nombre;
+        $proovedor->telefono = $request->telefono; 
+        $proovedor->email = $request->email;
+        $proovedor->nif = $request->nif;
+        $proovedor->direccion = $request->direccion;
+    
+        $proovedor->save();
+        return redirect("home");
     }
 
     /**
