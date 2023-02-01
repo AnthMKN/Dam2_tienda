@@ -81,7 +81,7 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id) 
     {
-        $cliente = Articulo::find($id);
+        $cliente = Cliente::find($id);
     
         $cliente->nombre = $request->nombre;
         $cliente->telefono = $request->telefono; 

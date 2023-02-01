@@ -34,11 +34,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                 ¿Desea borrar el grupo <strong>{{ $articulo->name }}</strong>?
+                 ¿Desea borrar el articulo <strong>{{ $articulo->name }}</strong>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <form action="{{ route("grupos.destroy", ["grupo" => $articulo->id]) }}" method="post">
+                <form action="{{ route("articulo.destroy", ["articulo" => $articulo->id]) }}" method="post">
                     @csrf
                     @method("DELETE")
                     <button type="submit" class="btn btn-primary">Borrar</button>

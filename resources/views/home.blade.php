@@ -23,9 +23,9 @@
 
 
                             @foreach($articulos as $articulo)
-
-                                <x-tarjetaarticulo :articulo="$articulo" :botonver=true />
-
+                                @if($articulo->delete_at == NULL)
+                                    <x-tarjetaarticulo :articulo="$articulo" :botonver=true />
+                                @endif
                             @endforeach
                         </div>
                     </div>

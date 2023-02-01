@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('categoria');
             $table->text('descripcion');
             $table->text('foto');
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }

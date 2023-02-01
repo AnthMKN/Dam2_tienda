@@ -44,7 +44,7 @@
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        <img src="./gifWelcome.gif" height="400">
+                        <img src="./amigoinvisible.png" height="400">
                     </div>
                 </div>
             </div>
