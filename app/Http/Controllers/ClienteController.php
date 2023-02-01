@@ -68,9 +68,8 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        dd($id);
-        return view("clientes.editar",["cliente" => Cliente::find($id->id)]);
+    {   
+        return view("clientes.editar",["cliente" => Cliente::find($id)]);
     }
 
     /**

@@ -17,6 +17,7 @@
                                         {{ $cliente->email }}                                    
                                     </div>
                                     <div align="right"><a href="{{ route("cliente.edit", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Editar</a></div>
+                                    <div align="right"><a href="{{ route("cliente.edit", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Borrar</a></div>
                                 </li>
                             @endforeach
                         </ol>
