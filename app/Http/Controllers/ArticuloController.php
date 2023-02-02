@@ -56,7 +56,8 @@ class ArticuloController extends Controller
     public function show($id)
     {
         //
-        return view("articulos.mostrar", ["articulo" => Articulo::find($id)]);
+        return view("articulos.mostrar", ["articulo" => Articulo::findOrFail($id)]);//Con findOfFile se arregla si pones en el navegador un id que no existe, devuelve 404
+        
     }
 
     /**
