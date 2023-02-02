@@ -37,7 +37,7 @@ Route::get('/', function () {
 //Rutas de articulo
 
 //Prototipo parece que funciona
-Route::group(['middleware' => ['role:Administrator']], function () {
+Route::middleware(['SessionCheck'])->group(function ()  {
     Route::get('/index', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("home");
     Route::get('/home', [\App\Http\Controllers\ArticuloController::class, 'index'])->name("home");
     Route::resource("articulo", \App\Http\Controllers\ArticuloController::class);
