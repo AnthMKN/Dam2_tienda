@@ -19,7 +19,7 @@
                             @csrf
                             @method("POST")
 
-                        <div>
+                        <div class="form-group row">
                             <label for="id_cliente" class="col-4 col-form-label">Cliente:</label>
                             <div class="col-8">
                                 <select id="id_cliente" name="id_cliente" class="col-4 col-form-label" id="lang">
