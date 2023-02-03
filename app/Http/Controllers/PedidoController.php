@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
+use App\Models\Articulo;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -24,7 +27,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        return view("pedido.crear", ["articulos" => Articulo::all()],["clientes" => Cliente::all()]);
     }
 
     /**

@@ -39,10 +39,7 @@
 
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/cliente') }}">Clientes</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/proveedor') }}">Proveedores</a>
+                    <a class="nav-link" href="{{ route("pedido.create") }}">Pedido</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -52,13 +49,13 @@
 <!-- Si añades .show a la clase dropdown-menu se abre al dibujarse -->
 
                           <li>
-                          <a class="dropdown-item" href="{{ route("cliente.create") }}">
-                              {{ "Añadir Cliente" }}
+                          <a class="dropdown-item" href="{{ url('/cliente') }}">
+                              {{ "Cliente" }}
                           </a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="{{ route("proveedor.create") }}">
-                              {{ "Añadir Poveedor" }}
+                          <a class="dropdown-item" href="{{ url('/proveedor') }}">
+                              {{ "Poveedor" }}
                           </a>
                         </li>
                     </ul>
