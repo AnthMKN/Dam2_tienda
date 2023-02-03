@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/', function () {
     if (auth()->user()) {
-        return view('home'); 
+        return redirect('/home');
     } else {
         return view('welcome'); 
     }
