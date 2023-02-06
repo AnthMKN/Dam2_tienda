@@ -51,6 +51,8 @@ Route::middleware(['SessionCheck'])->group(function ()  {
 
     //Rutas de pedidos
     Route::resource("pedido", \App\Http\Controllers\PedidoController::class);
+
+    Route::resource("detallePedido", \App\Http\Controllers\DetallePedidoController::class);
  });
 
 
