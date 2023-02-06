@@ -133,9 +133,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <?php 
-                  echo $_SESSION['pedido'];
-              ?>
+              ID de pedido: {{ session('pedido') }}
+              Aqui van el resto de elementos y un for para los detalles del pedido
               
             </div>
             <div class="modal-footer">

@@ -47,7 +47,7 @@ class PedidoController extends Controller
 
         session_start();
 
-        $_SESSION['pedido']=$pedido->id;
+        session(['pedido' => $pedido->id]);
 
         return redirect("home");
     }
