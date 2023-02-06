@@ -6,6 +6,14 @@
             <div>
                 <img src={{$articulo->foto}} width="200px" height="200px">
             </div>
+            <div>
+                <h6 class="card-title">{{ $articulo->precio }}€</h6>
+            </div>
+            
+                @if ($articulo->stock <= 0)
+                    <h6 class="card-title">Sin stock</h6>
+                @endif
+            
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
                 @if ($botonver)
                     <a href="{{ route('articulo.show', ["articulo" => $articulo->id]) }}" class="btn btn-outline-primary">Ver</a>
