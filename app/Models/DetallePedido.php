@@ -26,7 +26,7 @@ class DetallePedido extends Model
         return DetallePedido::all();
     }
 
-    public function obtenerArticuloPorId($id){
+    public function obtenerDetallePedidoPorId($id){
         return DetallePedido::find($id);
     }
 

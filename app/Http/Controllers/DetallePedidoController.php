@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pedidio;
+use App\Models\DetallePedido;
 
 class DetallePedidoController extends Controller
 {
@@ -89,5 +91,12 @@ class DetallePedidoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function list($id_pedido){
+
+        $pedido = DB::table('detalle_pedidos')->where('id_pedido',$id_pedido)->get();
+
+        return $pedido;
     }
 }
