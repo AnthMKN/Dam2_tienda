@@ -12,14 +12,14 @@ class Pedido extends Model
     protected $table = "pedidos";
 
     protected $fillable = [
+        'id_cliente',
         'confirmado',
         'descuento',
         'created_at'
     ];
 
     protected $hidden = [
-        'id',
-        'id_cliente',
+        'id'
     ];
 
     public function obtenerPedidos(){

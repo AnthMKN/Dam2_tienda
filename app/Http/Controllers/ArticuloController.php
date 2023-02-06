@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articulo;
+use App\Models\Cliente;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,7 @@ class ArticuloController extends Controller
     public function show($id)
     {
         //
-        return view("articulos.mostrar", ["articulo" => Articulo::findOrFail($id)]);//Con findOfFile se arregla si pones en el navegador un id que no existe, devuelve 404
+        return view("articulos.mostrar", ["articulo" => Articulo::findOrFail($id)], ["clientes" => Cliente::all()]);//Con findOfFile se arregla si pones en el navegador un id que no existe, devuelve 404
         
     }
 

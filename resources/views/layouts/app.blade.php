@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -59,10 +62,11 @@
                     </ul>
                   </li>
                   <li>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Carrito
+                    
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Carrito
                       </button>
-                      
+
                   </li>
                 </ul>
 
@@ -129,7 +133,10 @@
               </button>
             </div>
             <div class="modal-body">
-              Aqui van los elementos del carrito
+              <?php 
+                  echo $_SESSION['pedido'];
+              ?>
+              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Seguir comprando</button>

@@ -44,6 +44,11 @@ class PedidoController extends Controller
             "confirmado" => $request->confirmado,
             "descuento" => $request->descuento,
         ]);
+
+        session_start();
+
+        $_SESSION['pedido']=$pedido->id;
+
         return redirect("home");
     }
 
@@ -94,4 +99,9 @@ class PedidoController extends Controller
     {
         //
     }
-}
+
+    public function sesion(){
+
+        
+    }
+ }

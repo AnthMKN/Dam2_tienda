@@ -40,27 +40,9 @@
                         <div class="form-group row">
                             <label for="descuento" class="col-4 col-form-label">Descuento:</label>
                             <div class="col-8">
-                                <input id="Descuento" name="Descuento" type="text" class="form-control">
+                                <input id="descuento" name="descuento" type="text" class="form-control">
                             </div>  
                         </div>
-
-
-
-                            <div class="form-group row">
-                                <label class="col-4 col-form-label" for="comentario">Lista de articulos a meter en el pedido:</label>
-                                <div class="col-8">
-                                    @foreach($articulos as $articulo)
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="articulos[]" id="articulos[]" value="{{ $articulo->id }}">
-                                            <label class="form-check-label" for="{{ $articulo->nombre }}">{{ $articulo->nombre }}</label>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-
-
-
-
 
                             <div class="form-group row">
                                 <div class="offset-4 col-8">
@@ -68,9 +50,6 @@
                                 </div>
                             </div>
                         </form>
-
-
-
                     </div>
                 </div>
             </div>

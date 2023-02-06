@@ -12,14 +12,14 @@ class DetallePedido extends Model
     protected $table = "detalle_pedidos";
 
     protected $fillable = [
+        'id_pedido',
+        'id_articulo',
         'cantidad',
         'precio',
     ];
 
     protected $hidden = [
-        'id',
-        'id_pedido',
-        'id_articulo',
+        'id'
     ];
     
     public function obtenerDetallePedido(){
