@@ -8,14 +8,15 @@
                 <div class="card-header">
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
                     <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" type="button" class="btn btn-primary">Editar</a>
-                    
-                    @if(!isset($_SESSION['pedido']))
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearPedido">
-                            Nuevo pedido
-                        </button>       
-                    @else
+
+                    @if(session()->has('pedido'))
+                        ID de pedido: {{ session('pedido') }}
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido">
                             Añadir carrito
+                        </button>
+                    @else
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearPedido">
+                            Nuevo pedido
                         </button>
                     @endif
                 </div>
@@ -81,7 +82,7 @@
                                     @foreach ($clientes as $cliente)
                                     <option value ={{$cliente->id}}>{{$cliente->nombre}}</option>
                                     @endforeach
-                                </select>   
+                                </select>
                             </div>
                         </div>
 
@@ -89,14 +90,14 @@
                             <label for="confirmado" class="col-4 col-form-label">Confirmado:</label>
                             <div class="col-8">
                                 <input id="confirmado" name="confirmado" type="text" class="form-control">
-                            </div>  
+                            </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="descuento" class="col-4 col-form-label">Descuento:</label>
                             <div class="col-8">
                                 <input id="descuento" name="descuento" type="text" class="form-control">
-                            </div>  
+                            </div>
                         </div>
 
                             <div class="form-group row">
@@ -105,7 +106,7 @@
                                 </div>
                             </div>
                         </form>
-            @endif          
+            @endif
         </div>
       </div>
     </div>
@@ -135,7 +136,7 @@
                         <label for="cantidad" class="col-4 col-form-label">Cantidad:</label>
                         <div class="col-8">
                             <input id="cantidad" name="cantidad" type="text" class="form-control">
-                        </div>  
+                        </div>
                     </div>
 
                 </form>

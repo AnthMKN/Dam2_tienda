@@ -1,4 +1,4 @@
-<?php 
+<?php
   session_start();
 ?>
 <!doctype html>
@@ -62,7 +62,7 @@
                     </ul>
                   </li>
                   <li>
-                    
+
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                           Carrito
                       </button>
@@ -75,7 +75,7 @@
 <!-- Lado derecho Of Navbar -->
                                    <ul class="navbar-nav ms-auto">
                                     <!-- Authentication Links -->
-                                    
+
                                     @guest
                                         @if (Route::has('login'))
                                             <li class="nav-item">
@@ -109,11 +109,11 @@
                                     @endguest
                                 </ul>
 
-                                
+
 
               </div>
             </div>
-            
+
           </nav>
 
 
@@ -133,9 +133,12 @@
               </button>
             </div>
             <div class="modal-body">
-              ID de pedido: {{ session('pedido') }}
-              Aqui van el resto de elementos y un for para los detalles del pedido
-              
+                @if(session()->has('pedido'))
+                    ID de pedido: {{ session('pedido') }}
+                    Aqui van el resto de elementos y un for para los detalles del pedido
+                @else
+                    No hay ningún pedido activo
+                @endif
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Seguir comprando</button>
