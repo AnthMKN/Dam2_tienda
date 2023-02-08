@@ -86,7 +86,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!--<div class="form-group row">
                             <label for="confirmado" class="col-4 col-form-label">Confirmado:</label>
                             <div class="col-8">
                                 <input id="confirmado" name="confirmado" type="text" class="form-control">
@@ -98,7 +98,7 @@
                             <div class="col-8">
                                 <input id="descuento" name="descuento" type="text" class="form-control">
                             </div>
-                        </div>
+                        </div>-->
 
                             <div class="form-group row">
                                 <div class="offset-4 col-8">
@@ -123,28 +123,33 @@
           </button>
         </div>
         <div class="modal-body">
-            @if(isset($_SESSION['pedido']))
+            @if(session()->has('pedido'))
                 <form form class="form-floating" action="{{ route("detallePedido.store") }}" method="post">
                     @csrf
                     @method("POST")
 
-                    <input id="id_pedido" name="id_pedido" type="hidden" value="{{$_SESSION['pedido']}}">
+                    <input id="id_pedido" name="id_pedido" type="hidden" value="{{ session('pedido') }}">
                     <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
-                    <input id="precio" name="precio" type="precio" value="{{$articulo->precio}}">
+                                   
+                    <div class="form-group row">
+                        <label for="precio" class="col-4 col-form-label">Precio:</label>
+                        <div class="col-8">
+                            <input class="form-control" readonly="readonly" id="precio" name="precio" type="precio" value="{{$articulo->precio}}">
+                        </div>
+                    </div>
 
                     <div class="form-group row">
                         <label for="cantidad" class="col-4 col-form-label">Cantidad:</label>
                         <div class="col-8">
-                            <input id="cantidad" name="cantidad" type="text" class="form-control">
+                            <input class="form-control" id="cantidad" name="cantidad" type="cantidad">
                         </div>
                     </div>
-
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Añadir a pedido</button>
+                    </div>
                 </form>
             @endif
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Añadir a pedido</button>
-        </div>
+        </div> 
       </div>
     </div>
   </div>

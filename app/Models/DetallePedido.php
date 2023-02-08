@@ -15,7 +15,7 @@ class DetallePedido extends Model
         'id_pedido',
         'id_articulo',
         'cantidad',
-        'precio',
+        'precio'
     ];
 
     protected $hidden = [
