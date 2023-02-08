@@ -94,11 +94,4 @@ class DetallePedidoController extends Controller
     {
         //
     }
-
-    public function list($id_pedido){
-
-        $pedido = DB::table('detalle_pedidos')->where('id_pedido',$id_pedido)->get();
-
-        return $pedido;
-    }
 }

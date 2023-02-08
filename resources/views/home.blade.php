@@ -23,7 +23,7 @@
 
                             @foreach($articulos as $articulo)
                                 @if($articulo->delete_at == NULL)
-                                    <x-tarjetaarticulo :articulo="$articulo" :botonver=true />
+                                    <x-tarjetaarticulo :clientes="$clientes" :articulo="$articulo" :botonver=true />
                                 @endif
                             @endforeach
                         </div>

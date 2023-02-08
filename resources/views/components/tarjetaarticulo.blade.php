@@ -19,12 +19,8 @@
                     <a href="{{ route('articulo.show', ["articulo" => $articulo->id]) }}" class="btn btn-outline-primary">Ver</a>
                 @endif
                     <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" class="btn btn-outline-primary">Editar</a>
-                    <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addAlPedido">
-                        Añadir carrito
-                    </button>
                     @if( $articulo->stock > 0)
                         @if(session()->has('pedido'))
-                            <!--ID de pedido: {{ session('pedido') }}-->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido">
                                 Añadir carrito
                             </button>

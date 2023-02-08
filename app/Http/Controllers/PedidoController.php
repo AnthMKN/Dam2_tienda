@@ -73,7 +73,7 @@ class PedidoController extends Controller
     public function edit($id)
     {
         //
-        return view("pedidos.editar",["pedido" => $pedido],)["detallesPedido" => list($id)];
+        return view("pedidos.editar",["pedido" => $pedido, "detallesPedido" => $this->list($id)]);
     }
 
     /**
