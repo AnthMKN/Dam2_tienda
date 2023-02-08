@@ -13,7 +13,7 @@ class ArticuloController extends Controller
     //
     public function index()
     {
-        return view("home", ["articulos" => Articulo::all()], ["detallePedidos" => DetallePedido::all()]);
+        return view("home", ["articulos" => Articulo::all()], ["clientes" => Cliente::all()]);
     }
 
     /**
