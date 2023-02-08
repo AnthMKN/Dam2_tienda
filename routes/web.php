@@ -53,6 +53,8 @@ Route::middleware(['SessionCheck'])->group(function ()  {
     Route::resource("pedido", \App\Http\Controllers\PedidoController::class);
 
     Route::resource("detallePedido", \App\Http\Controllers\DetallePedidoController::class);
+
+    Route::get("detallePedido/{id_pedido}", [\App\Http\Controllers\DetallePedidoController::class, 'list'])->name("list");
  });
 
 
@@ -89,7 +91,7 @@ Route::middleware(['SessionCheck'])->group(function ()  {
 });*/
 
 //Route::get('grupos/{grupoid}/intromasiva', [IntromasivaController::class,"intro"])->name("grupos.intromasiva");
-//Route::post('grupos/{grupoid}/store', [IntromasivaController::class, "store"])->name("grupos.storemasiva");
+Route::post('grupos/{grupoid}/store', [IntromasivaController::class, "store"])->name("grupos.storemasiva");
 
 Route::get('about', function () {
     return view("about.index");

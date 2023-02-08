@@ -16,6 +16,7 @@ class DetallePedidoController extends Controller
     public function index()
     {
         //
+        return view("home", ["detallePedidos" => DetallePedido::all()]);
     }
 
     /**
