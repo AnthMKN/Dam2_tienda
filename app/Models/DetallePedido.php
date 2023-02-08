@@ -37,6 +37,6 @@ class DetallePedido extends Model
 
     public function articulo()
     {
-        return $this->belongsTo(Articulo::class, "id");
+        return $this->belongsTo(Articulo::class,"id_articulo", "id");
     }
 }

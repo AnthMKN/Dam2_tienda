@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use App\Models\Articulo;
 use App\Models\Cliente;
+use App\Models\DetallePedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class PedidoController extends Controller
 {
@@ -72,8 +75,8 @@ class PedidoController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view("pedidos.editar",["pedido" => $pedido, "detallesPedido" => $this->list($id)]);
+        
+        return view("pedido.editar",["pedido" => Pedido::find($id), "detallesPedido" => $this->listPedido($id), "articulos" => $this->listArticulo($id)]);
     }
 
     /**
@@ -85,8 +88,11 @@ class PedidoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        return "Aqui va la pagina para actualizar pedidos";
+        $pedido = Pedido::find($id);
+
+        $pedido -> confirmado = "1";
+        $pedido -> save();
+        return redirect()->back();
     }
 
     /**
@@ -100,10 +106,20 @@ class PedidoController extends Controller
         //
     }
 
-    public function list($id_pedido){
+    public function listPedido($id_pedido){
 
         $pedido = DB::table('detalle_pedidos')->where('id_pedido',$id_pedido)->get();
 
         return $pedido;
+    }
+    public function listArticulo($id_pedido){
+
+        //obtener id cliente
+        //detallespedido -> idPedido
+        $articulos = DB::table('pedidos')->join("detalle_pedidos", "pedidos.id","=","detalle_pedidos.id_pedido")
+                                        ->join("articulos","detalle_pedidos.id_articulo","=","articulos.id")
+                                        ->where("pedidos.id_cliente","=", 1)->get();
+
+        return $articulos;
     }
  }

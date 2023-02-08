@@ -42,6 +42,6 @@ class Articulo extends Model
     }
 
     public function detalle_pedido() {
-        return $this->hasMany(DetallePedido::class, "id");
+        return $this->hasMany(DetallePedido::class, "id", "id_articulo");
     }
 }

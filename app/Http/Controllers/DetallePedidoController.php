@@ -80,8 +80,13 @@ class DetallePedidoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        return "Aqui va la pagina para actualizar detalles de pedido";
+        
+        dd($request->cantidad);
+        $d_pedido = DetallePedido::find($id);
+
+        $d_pedido->cantidad = $request->cantidad;
+        $d_pedido->save();
+        return redirect()->back();
     }
 
     /**
@@ -92,6 +97,10 @@ class DetallePedidoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $d_pedido = DetallePedido::find($id);
+
+        $d_pedido->delete();
+
+        return redirect()->back();
     }
 }
