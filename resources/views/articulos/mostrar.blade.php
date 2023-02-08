@@ -8,16 +8,18 @@
                 <div class="card-header">
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
                     <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" type="button" class="btn btn-primary">Editar</a>
-
-                    @if(session()->has('pedido'))
-                        ID de pedido: {{ session('pedido') }}
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido">
-                            Añadir carrito
-                        </button>
-                    @else
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearPedido">
-                            Nuevo pedido
-                        </button>
+                    
+                    @if( $articulo->stock > 0)
+                        @if(session()->has('pedido'))
+                            <!--ID de pedido: {{ session('pedido') }}-->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido">
+                                Añadir carrito
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearPedido">
+                                Nuevo pedido
+                            </button>
+                        @endif
                     @endif
                 </div>
 
@@ -67,7 +69,7 @@
           </button>
         </div>
         <div class="modal-body">
-            @if(!isset($_SESSION['pedido']))
+            @if(session()->has('pedido'))
                 <form class="form-floating" action="{{ route("pedido.store") }}" method="post">
                     @csrf
                     @method("POST")
@@ -85,20 +87,6 @@
                                 </select>
                             </div>
                         </div>
-
-                        <!--<div class="form-group row">
-                            <label for="confirmado" class="col-4 col-form-label">Confirmado:</label>
-                            <div class="col-8">
-                                <input id="confirmado" name="confirmado" type="text" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="descuento" class="col-4 col-form-label">Descuento:</label>
-                            <div class="col-8">
-                                <input id="descuento" name="descuento" type="text" class="form-control">
-                            </div>
-                        </div>-->
 
                             <div class="form-group row">
                                 <div class="offset-4 col-8">

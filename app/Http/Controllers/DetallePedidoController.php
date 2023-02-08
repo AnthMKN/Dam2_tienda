@@ -55,6 +55,7 @@ class DetallePedidoController extends Controller
     public function show($id)
     {
         //
+        //return JSON("detallePedidio.mostrar", ["detallePedido" => DetallePedido::find($id)]);
     }
 
     /**
