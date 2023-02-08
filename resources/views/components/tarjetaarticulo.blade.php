@@ -22,8 +22,8 @@
                     @if( $articulo->stock > 0)
                         @if(session()->has('pedido'))
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido">
-                                Añadir carrito
-                            </button>
+                                Al carrito
+                            </button><!--Cambiar estilo de este boton-->
                         @else
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearPedido">
                                 Nuevo pedido
@@ -66,6 +66,7 @@
                         </select>
                     </div>
                 </div>
+                <input id="confirmado" name="confirmado" type="hidden" value=0><!--Añadido para inicializar pedidos a estado 0 que es aun abiertos-->
                 <div class="form-group row">
                     <div class="offset-4 col-8">
                         <button type="submit" class="btn btn-primary">Crear pedido</button>
@@ -94,7 +95,7 @@
                     @method("POST")
 
                     <input id="id_pedido" name="id_pedido" type="hidden" value="{{ session('pedido') }}">
-                    <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
+                    <input id="id_articulo" name="id_articulo" type="text" value="{{$articulo->id}}">
                                    
                     <div class="form-group row">
                         <label for="precio" class="col-4 col-form-label">Precio:</label>

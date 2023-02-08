@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pedidio;
 use App\Models\DetallePedido;
+use App\Models\Articulo;
 
 class DetallePedidoController extends Controller
 {
@@ -44,6 +45,11 @@ class DetallePedidoController extends Controller
             "cantidad" => $request->cantidad,
             "precio" => $request->precio,
         ]);
+
+        $articulo = Articulo::find($request->id_articulo);
+        $articulo->stock -= $request->cantidad;
+        $articulo->save();
+
         return redirect("home");
     }
 
@@ -81,7 +87,7 @@ class DetallePedidoController extends Controller
     public function update(Request $request, $id)
     {
         
-        dd($request->cantidad);
+        //dd($request->cantidad);
         $d_pedido = DetallePedido::find($id);
 
         $d_pedido->cantidad = $request->cantidad;
@@ -98,6 +104,10 @@ class DetallePedidoController extends Controller
     public function destroy($id)
     {
         $d_pedido = DetallePedido::find($id);
+
+        $articulo = Articulo::find($d_pedido->id_articulo);
+        $articulo->stock += $d_pedido->cantidad;
+        $articulo->save();
 
         $d_pedido->delete();
 

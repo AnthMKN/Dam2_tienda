@@ -33,6 +33,7 @@
                                 <thead>
                                     <tr>
                                         <h2> {{$articulo->nombre}}</h2>
+                                        <p>ID: {{$articulo->id}}</p>
                                         <p>Proveedor: {{$articulo->id_proveedor}}</p>
                                         <p>Precio: {{$articulo->precio}}€</p>
                                         <p>Stock: {{$articulo->stock}}</p>

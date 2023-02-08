@@ -14,14 +14,13 @@
                                 {{ session(['status' => '']) }}
                             </div>
                         @endif
-
                             <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
                                 @csrf
                                 @method("PUT")
                                 <div class="form-group row">
                                     <label for="nombre" class="col-4 col-form-label">Cliente:</label>
                                     <div class="col-8">
-                                        <input id="nombre" name="nombre" readonly="readonly" type="text" class="form-control" value="{{ $pedido->id_cliente }}">
+                                        <input id="nombre" name="nombre" readonly="readonly" type="text" class="form-control" value="{{ $pedido->cliente->nombre }}">
                                     </div>
                                 </div>
 
@@ -37,10 +36,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($detallesPedido as $d_pedido)
-                                            @foreach ($articulos as $articulo)
+                                            @foreach ($detallesPedido as $d_pedido)    
                                             <tr>
-                                                <td>{{$articulo->nombre}}</td>
+                                                <td>{{$d_pedido->id_articulo}}</td><!--falta que aparezca el nombre del articulo-->
                                                 <form class="form-floating" action="{{ route('detallePedido.update', ["detallePedido" => $d_pedido->id]) }}" method="post">
                                                     @csrf
                                                     @method("PUT")
@@ -53,8 +51,8 @@
                                                             </td>
                                                         </div>
                                                 </form>
-                                                <td>{{$d_pedido->precio}}</td>
-                                                <td>{{$d_pedido->precio * $d_pedido->cantidad}}</td>
+                                                <td>{{$d_pedido->precio}}€</td>
+                                                <td>{{$d_pedido->precio * $d_pedido->cantidad}}€</td>
                                                 <form class="form-floating" action="{{ route('detallePedido.destroy', ["detallePedido" => $d_pedido->id]) }}" method="post">
                                                     @csrf
                                                     @method("DELETE")
@@ -63,13 +61,12 @@
                                                     </td>
                                                 </form>
                                             </tr>      
-                                            @endforeach
+                                            
                                             @endforeach
                                         </tbody>
                                     </table>
                                 </div>
-
-
+      
                                 <div class="form-group row" align="right">
                                     <div class="offset-4 col-8">
                                         <button type="submit" class="btn btn-primary">Finalizar Pedido</button>

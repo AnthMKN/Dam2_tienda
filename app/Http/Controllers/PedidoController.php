@@ -92,7 +92,10 @@ class PedidoController extends Controller
 
         $pedido -> confirmado = "1";
         $pedido -> save();
-        return redirect()->back();
+        
+        session()->forget('pedido');
+
+        return redirect("home");
     }
 
     /**
