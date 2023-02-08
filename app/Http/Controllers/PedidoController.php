@@ -73,7 +73,7 @@ class PedidoController extends Controller
     public function edit($id)
     {
         //
-        return view("pedidos.editar",["pedido" => $pedido]);
+        return view("pedidos.editar",["pedido" => $pedido],)["detallesPedido" => list($id)];
     }
 
     /**
@@ -100,8 +100,10 @@ class PedidoController extends Controller
         //
     }
 
-    public function sesion(){
+    public function list($id_pedido){
 
-        
+        $pedido = DB::table('detalle_pedidos')->where('id_pedido',$id_pedido)->get();
+
+        return $pedido;
     }
  }

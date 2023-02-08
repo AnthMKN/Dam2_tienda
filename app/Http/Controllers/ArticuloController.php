@@ -6,13 +6,14 @@ use App\Models\Articulo;
 use App\Models\Cliente;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use App\Models\DetallePedido;
 
 class ArticuloController extends Controller
 {
     //
     public function index()
     {
-        return view("home", ["articulos" => Articulo::all()]);
+        return view("home", ["articulos" => Articulo::all()], ["clientes" => Cliente::all()]);
     }
 
     /**
