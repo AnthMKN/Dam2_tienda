@@ -1,4 +1,3 @@
-{{-- GRUPO DE AMIGOS INVISIBLES --}}
 <div class="col-lg-4 col-md-6 col-sm-12 p-1 pb-3 m-0">
     <div class="card text-center">
         <div class="card-body">
@@ -21,7 +20,7 @@
                     <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" class="btn btn-outline-primary">Editar</a>
                     @if( $articulo->stock > 0)
                         @if(session()->has('pedido'))
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido - {{$articulo->id}}">
                                 Al carrito
                             </button><!--Cambiar estilo de este boton-->
                         @else
@@ -79,7 +78,7 @@
   </div>
 
   <!--Modal añadir al Pedido-->
-  <div class="modal fade" id="addAlPedido" tabindex="-1" role="dialog" aria-labelledby="addAlPedidoLabel" aria-hidden="true">
+  <div class="modal fade" id="addAlPedido - {{ $articulo->id }}" tabindex="-1" role="dialog" aria-labelledby="addAlPedidoLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -94,7 +93,7 @@
                     @csrf
                     @method("POST")
 
-                    <input id="id_pedido" name="id_pedido" type="hidden" value="{{ session('pedido') }}">
+                    <input id="id_pedido" name="id_pedido" type="hidden" value="{{$articulo->id}}">
                     <input id="id_articulo" name="id_articulo" type="text" value="{{$articulo->id}}">
                                    
                     <div class="form-group row">
