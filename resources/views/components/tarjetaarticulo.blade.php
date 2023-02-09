@@ -22,9 +22,9 @@
                         @if(session()->has('pedido'))
                             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addAlPedido - {{$articulo->id}}">
                                 Al carrito
-                            </button><!--Cambiar estilo de este boton-->
+                            </button>
                         @else
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearPedido">
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#crearPedido">
                                 Nuevo pedido
                             </button>
                         @endif
