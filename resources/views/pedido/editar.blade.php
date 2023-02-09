@@ -1,12 +1,13 @@
 @extends('layouts.app')
-
+                                            @php 
+                                                $iteracion=0;
+                                            @endphp
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
-
                     <div class="card-body">
                         @if (strlen (session('status')) > 0)
                             <div class="alert alert-success" role="alert">
@@ -36,9 +37,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @php 
-                                                $iteracion=0;
-                                            @endphp
                                             @foreach ($detallesPedido as $d_pedido)
                                             <tr>
                                                 <td>{{ $articulos[$iteracion]->nombre}}</td>
@@ -64,7 +62,9 @@
                                                     </td>
                                                 </form>
                                             </tr>
-                                            {{$iteracion++}}    
+                                            @php
+                                                $iteracion++
+                                            @endphp  
                                             @endforeach
                                         </tbody>
                                     </table>
