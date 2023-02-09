@@ -36,9 +36,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($detallesPedido as $d_pedido)    
+                                            @php 
+                                                $iteracion=0;
+                                            @endphp
+                                            @foreach ($detallesPedido as $d_pedido)
                                             <tr>
-                                                <td>{{$d_pedido->id_articulo}}</td><!--falta que aparezca el nombre del articulo-->
+                                                <td>{{ $articulos[$iteracion]->nombre}}</td>
                                                 <form class="form-floating" action="{{ route('detallePedido.update', ["detallePedido" => $d_pedido->id]) }}" method="post">
                                                     @csrf
                                                     @method("PUT")
@@ -60,8 +63,8 @@
                                                         <button type="submit" class="btn btn-primary">Borrar</button>
                                                     </td>
                                                 </form>
-                                            </tr>      
-                                            
+                                            </tr>
+                                            {{$iteracion++}}    
                                             @endforeach
                                         </tbody>
                                     </table>
