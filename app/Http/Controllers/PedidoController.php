@@ -95,7 +95,7 @@ class PedidoController extends Controller
         
         session()->forget('pedido');
 
-        return redirect()->back();
+        return redirect("home");
     }
 
     /**
@@ -117,7 +117,7 @@ class PedidoController extends Controller
     }
     public function listArticulo($id_pedido){
 
-        $cliente = DB::table('clientes')->join("pedidos","clientes.id","=","pedidos.id_cliente")
+        /*$cliente = DB::table('clientes')->join("pedidos","clientes.id","=","pedidos.id_cliente")
                                         ->where("pedidos.id","=",session('pedido'))
                                         ->get();
 
@@ -126,7 +126,13 @@ class PedidoController extends Controller
                                             ->where([
                                             ["pedidos.id_cliente","=", $cliente[0]->id_cliente],
                                             ["detalle_pedidos.id_pedido","=",session('pedido')],
-                                            ])->select("articulos.nombre")->get();
+                                            ])->select("articulos.nombre")->get();*/
+        
+        $articulos = DB::table('articulos')
+                        ->join("detalle_pedidos", "articulos.id","=","detalle_pedidos.id_articulo")
+                        ->where("detalle_pedidos.id_pedido","=", $id_pedido)
+                        ->select("articulos.nombre")
+                        ->get();
 
         return $articulos;
     }

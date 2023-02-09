@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
                     <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" type="button" class="btn btn-primary">Editar</a>
-                    <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#borrar{{ $articulo->id }}">
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#borrar{{ $articulo->id }}">
                         Borrar
                     </button>
                     

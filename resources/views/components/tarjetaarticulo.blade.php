@@ -20,7 +20,7 @@
                     <a href="{{ route("articulo.edit", ["articulo" => $articulo->id]) }}" class="btn btn-outline-primary">Editar</a>
                     @if( $articulo->stock > 0)
                         @if(session()->has('pedido'))
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAlPedido - {{$articulo->id}}">
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addAlPedido - {{$articulo->id}}">
                                 Al carrito
                             </button><!--Cambiar estilo de este boton-->
                         @else

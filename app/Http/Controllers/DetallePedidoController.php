@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pedidio;
+use App\Models\Pedido;
 use App\Models\DetallePedido;
 use App\Models\Articulo;
 
@@ -89,6 +89,14 @@ class DetallePedidoController extends Controller
         
         //dd($request->cantidad);
         $d_pedido = DetallePedido::find($id);
+
+        $restablecerStock = $d_pedido->cantidad - $request->cantidad;
+        $articulo = Articulo::find($d_pedido->id_articulo);
+        $articulo->stock += $restablecerStock;
+        $articulo->save();
+
+        $d_pedido->cantidad = $request->cantidad;
+        $d_pedido->save();
 
         $d_pedido->cantidad = $request->cantidad;
         $d_pedido->save();

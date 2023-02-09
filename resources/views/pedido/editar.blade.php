@@ -15,16 +15,22 @@
                                 {{ session(['status' => '']) }}
                             </div>
                         @endif
-                            <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
+                        <label for="nombre" class="col-4 col-form-label">Cliente:</label>
+                        <div class="col-6">
+                            <input id="nombre" name="nombre" readonly="readonly" type="text" class="form-control" value="{{ $pedido->cliente->nombre }}">
+                        </div>
+                            <!--<form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
                                 @csrf
                                 @method("PUT")
                                 <div class="form-group row">
                                     <label for="nombre" class="col-4 col-form-label">Cliente:</label>
-                                    <div class="col-8">
+                                    <div class="col-6">
                                         <input id="nombre" name="nombre" readonly="readonly" type="text" class="form-control" value="{{ $pedido->cliente->nombre }}">
                                     </div>
                                 </div>
 
+                                Esto es lo que decia, este formulario se cerraba abajo del boton finalizar pedido, lo dejo comentado por si necesitas los estilos o algo
+                            </form>-->
                                 <div class="form-group row">
                                     <table>
                                         <thead>
@@ -37,6 +43,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                    $total = 0;
+                                            @endphp 
                                             @foreach ($detallesPedido as $d_pedido)
                                             <tr>
                                                 <td>{{ $articulos[$iteracion]->nombre}}</td>
@@ -54,6 +63,9 @@
                                                 </form>
                                                 <td>{{$d_pedido->precio}}€</td>
                                                 <td>{{$d_pedido->precio * $d_pedido->cantidad}}€</td>
+                                                @php
+                                                    $total += $d_pedido->precio * $d_pedido->cantidad;
+                                                @endphp 
                                                 <form class="form-floating" action="{{ route('detallePedido.destroy', ["detallePedido" => $d_pedido->id]) }}" method="post">
                                                     @csrf
                                                     @method("DELETE")
@@ -69,14 +81,22 @@
                                         </tbody>
                                     </table>
                                 </div>
-      
-                                <div class="form-group row" align="right">
-                                    <div class="offset-4 col-8">
-                                        <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
+                                <!--Este es el formulario solamente con el boton de finalizar para poner 1 al pedido-->
+                                <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
+                                    @csrf
+                                    @method("PUT")
                                     </div>
-                                </div>
-                            </form>
-
+                                    <div class="form-group row" align="right">
+                                        <div class="offset-4 col-8">
+                                            <label for="total" class="col-4 col-form-label">Total: {{$total}}€</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" align="right">
+                                        <div class="offset-4 col-8">
+                                            <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
+                                        </div>
+                                    </div>
+                                </form>
                     </div>
                 </div>
             </div>
