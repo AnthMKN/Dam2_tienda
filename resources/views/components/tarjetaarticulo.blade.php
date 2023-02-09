@@ -93,7 +93,7 @@
                     @csrf
                     @method("POST")
 
-                    <input id="id_pedido" name="id_pedido" type="hidden" value="{{$articulo->id}}">
+                    <input id="id_pedido" name="id_pedido" type="hidden" value="{{session('pedido')}}">
                     <input id="id_articulo" name="id_articulo" type="text" value="{{$articulo->id}}">
                                    
                     <div class="form-group row">
