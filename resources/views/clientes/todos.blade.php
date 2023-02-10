@@ -16,6 +16,7 @@
                                         <div class="fw-bold">{{ $cliente->nombre }}</div>
                                         {{ $cliente->email }}                                    
                                     </div>
+                                    <div align="right"><a href="{{ route("cliente.show", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Ver</a></div>
                                     <div align="right"><a href="{{ route("cliente.edit", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Editar</a></div>
                                     <div align="right"><a href="{{ route("cliente.edit", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Borrar</a></div>
                                 </li>

@@ -94,7 +94,7 @@
                     @method("POST")
 
                     <input id="id_pedido" name="id_pedido" type="hidden" value="{{session('pedido')}}">
-                    <input id="id_articulo" name="id_articulo" type="text" value="{{$articulo->id}}">
+                    <input id="id_articulo" name="id_articulo" type="hidden" value="{{$articulo->id}}">
                                    
                     <div class="form-group row">
                         <label for="precio" class="col-4 col-form-label">Precio:</label>

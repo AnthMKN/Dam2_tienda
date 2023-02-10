@@ -60,7 +60,7 @@
                   </li>
                   @if(session()->has('pedido'))
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Finalizar pedido</a>
+                    <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
                   </li>
                   @endif
                 </ul>

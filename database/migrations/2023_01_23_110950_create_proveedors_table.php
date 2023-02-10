@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('nif')->unique();
             $table->string('direccion');
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }

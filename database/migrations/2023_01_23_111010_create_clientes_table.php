@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('direccion');
             $table->string('dni')->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
