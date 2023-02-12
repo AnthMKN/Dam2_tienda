@@ -14,10 +14,11 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                     <div class="ms-2 me-auto">
                                         <div class="fw-bold">{{ $proveedor->nombre }}</div>
-                                        {{ $proveedor->email }}                                    
+                                        {{ $proveedor->email }}
                                     </div>
                                     <div align="right"><a href="{{ route("proveedor.edit", ["proveedor" => $proveedor->id])}}" type="button" class="btn btn-outline-dark">Editar</a></div>
-                                </li>    
+                                </li>
+                                falta boton ver y borrar que marcara delete_At
                             @endforeach
                         </ol>
                     </div>

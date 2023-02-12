@@ -6,12 +6,12 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route("home") }}" type="button" class="btn btn-primary">Volver</a>
+                    <a href="{{ route("cliente.index") }}" type="button" class="btn btn-primary">Volver</a>
                     <a href="{{ route("cliente.edit", ["cliente" => $cliente->id]) }}" type="button" class="btn btn-primary">Editar</a>
                     <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#borrar{{ $cliente->id }}">
                         Borrar
                     </button>
-                    
+
                 </div>
 
                 <div class="card-body">
@@ -38,6 +38,25 @@
                                 </thead>
                             </table>
                         </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID:</th>
+                                    <th>Fecha: </th>
+                                    <th>Descuento: </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($pedidos as $pedido)
+                                    <tr>
+                                        <td>{{ $pedido->id }}</td>
+                                        <td>{{ $pedido->created_at }}</td>
+                                        <td>{{ $pedido->descuento }}</td>
+                                    </tr>
+                                @endforeach
+                                <!--Falta boton para abrir pedido que lleve a la vista pedido con sus detalles, igual que el carrito-->
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>

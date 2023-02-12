@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Pedidos;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -58,7 +59,12 @@ class ClienteController extends Controller
     public function show($id)
     {
         //
-        return view("clientes.mostrar", ["cliente" => Cliente::find($id)]);
+        $cliente = Cliente::findOrFail($id);
+        $pedidos = $cliente->pedidos;
+        //añadido
+
+        //return view("clientes.mostrar", ["cliente" => Cliente::find($id)]);
+        return view('clientes.mostrar', compact('cliente', 'pedidos'));
     }
 
     /**
@@ -68,7 +74,7 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         return view("clientes.editar",["cliente" => Cliente::find($id)]);
     }
 
@@ -79,16 +85,16 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         $cliente = Cliente::find($id);
-    
+
         $cliente->nombre = $request->nombre;
-        $cliente->telefono = $request->telefono; 
+        $cliente->telefono = $request->telefono;
         $cliente->email = $request->email;
         $cliente->dni = $request->dni;
         $cliente->direccion = $request->direccion;
-    
+
         $cliente->save();
         return redirect("home");
     }

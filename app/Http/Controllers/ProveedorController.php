@@ -23,7 +23,7 @@ class ProveedorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()    
+    public function create()
     {
         return view("proveedor/crear");
     }
@@ -69,6 +69,7 @@ class ProveedorController extends Controller
     public function edit($id)
     {
         //
+        //Falta esta vista
         return view("proveedors.editar",["proveedor" => $proveedor]);
     }
 
@@ -79,16 +80,16 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
         $proovedor = Articulo::find($id);
-    
+
         $proovedor->nombre = $request->nombre;
-        $proovedor->telefono = $request->telefono; 
+        $proovedor->telefono = $request->telefono;
         $proovedor->email = $request->email;
         $proovedor->nif = $request->nif;
         $proovedor->direccion = $request->direccion;
-    
+
         $proovedor->save();
         return redirect("home");
     }
