@@ -90,9 +90,6 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    @php
-                                        $total = ($total * ((100 - $pedido->descuento)/100))
-                                    @endphp 
                                 </div>
                                 <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
                                     @csrf
