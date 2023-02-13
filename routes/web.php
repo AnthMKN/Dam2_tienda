@@ -55,6 +55,8 @@ Route::middleware(['SessionCheck'])->group(function ()  {
     Route::resource("detallePedido", \App\Http\Controllers\DetallePedidoController::class);
 
     Route::get("detallePedido/{id_pedido}", [\App\Http\Controllers\DetallePedidoController::class, 'list'])->name("list");
+
+    Route::get("pedido/{id_pedido}", [\App\Http\Controllers\PedidoController::class, 'recuperarPedido'])->name("recuperarPedido");
  });
 
 

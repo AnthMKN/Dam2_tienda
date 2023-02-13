@@ -59,6 +59,13 @@
                                                         </td>
                                                     </div>
                                             </form>
+                                            <form class="form-floating" action="{{ route('recuperarPedido', ["id_pedido" => $pedido->id]) }}" method="get">
+                                                <div>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-primary">Resuperar</button>
+                                                    </td>
+                                                </div>
+                                            </form>
                                             <td>{{ $pedido->id }}</td>
                                             <td>{{ $pedido->created_at }}</td>
                                             <td>{{ $pedido->descuento }}%</td>

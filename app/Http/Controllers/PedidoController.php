@@ -19,9 +19,13 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        session()->forget('pedido');
+        
+    }
+    public function recuperarPedido($id_pedido){
 
-        return redirect("home");;
+        session(['pedido' => $id_pedido]);
+
+        return redirect("home");
     }
 
     /**
