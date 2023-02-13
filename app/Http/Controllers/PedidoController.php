@@ -64,7 +64,7 @@ class PedidoController extends Controller
     public function show($id)
     {
         //
-        return view("pedidos.mostrar", ["pedido" => Pedido::find($id)]);
+        return view("pedido.mostrar", ["pedido" => Pedido::find($id), "detallesPedido" => $this->listPedido($id), "articulos" => $this->listArticulo($id)]);
     }
 
     /**

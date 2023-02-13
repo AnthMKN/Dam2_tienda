@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{{ "Lista de Clientes" }}
+                    <div class="card-header">Lista de Clientes 
                         <div align="left"><a href="{{ route("cliente.create") }}" type="button" class="btn btn-primary">Añadir</a></div>
                     </div>
                     <div class="card-body">
