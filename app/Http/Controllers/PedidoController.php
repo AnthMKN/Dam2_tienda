@@ -51,6 +51,7 @@ class PedidoController extends Controller
 
         session(['pedido' => $pedido->id]);
 
+        
         return redirect("home");
     }
 
