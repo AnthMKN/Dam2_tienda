@@ -51,6 +51,7 @@ class PedidoController extends Controller
 
         $ss->store($pedido->id);
 
+        
         return redirect("home");
     }
 

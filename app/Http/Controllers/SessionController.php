@@ -12,11 +12,13 @@ class SessionController extends Controller
     }
     public function create()
     {
-
+       
     }
     public function store(Request $request)
     {
+        session_start();
 
+        session(['pedido' => $request->]);
     }
     public function show($id)
     {
@@ -28,11 +30,11 @@ class SessionController extends Controller
     }
     public function update(Request $request, $id)
     {
-
+        session(['pedido' => $pedido->id]);
     }
     public function destroy($id)
     {
-        
+        session()->forget(['pedido']);
     }
 
 }
