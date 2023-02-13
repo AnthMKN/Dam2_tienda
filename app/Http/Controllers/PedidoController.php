@@ -47,9 +47,9 @@ class PedidoController extends Controller
             "descuento" => $request->descuento,
         ]);
 
-        session_start();
+        $ss=new SessionController();
 
-        session(['pedido' => $pedido->id]);
+        $ss->store($pedido->id);
 
         return redirect("home");
     }
