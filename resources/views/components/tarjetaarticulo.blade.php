@@ -65,7 +65,8 @@
                         </select>
                     </div>
                 </div>
-                <input id="confirmado" name="confirmado" type="hidden" value=0><!--Añadido para inicializar pedidos a estado 0 que es aun abiertos-->
+                <input id="confirmado" name="confirmado" type="hidden" value=0>
+                <input id="descuento" name="descuento" type="hidden" value=0>
                 <div class="form-group row">
                     <div class="offset-4 col-8">
                         <button type="submit" class="btn btn-primary">Crear pedido</button>

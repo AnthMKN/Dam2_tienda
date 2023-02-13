@@ -47,20 +47,53 @@
                                     <th>Descuento: </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody>     
+                            Pedidos:
                                 @foreach ($pedidos as $pedido)
-                                    <tr>
-                                        <form class="form-floating" action="{{ route('pedido.show', ["pedido" => $pedido->id]) }}" method="get">
-                                                <div>
-                                                    <td>
-                                                        <button type="submit" class="btn btn-primary">Ver</button>
-                                                    </td>
-                                                </div>
-                                        </form>
-                                        <td>{{ $pedido->id }}</td>
-                                        <td>{{ $pedido->created_at }}</td>
-                                        <td>{{ $pedido->descuento }}</td>
-                                    </tr>
+                                    @if($pedido->confirmado==0)
+                                        <tr>
+                                            <form class="form-floating" action="{{ route('pedido.show', ["pedido" => $pedido->id]) }}" method="get">
+                                                    <div>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-primary">Ver</button>
+                                                        </td>
+                                                    </div>
+                                            </form>
+                                            <td>{{ $pedido->id }}</td>
+                                            <td>{{ $pedido->created_at }}</td>
+                                            <td>{{ $pedido->descuento }}%</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                                <!--Falta boton para abrir pedido que lleve a la vista pedido con sus detalles, igual que el carrito-->
+                            </tbody>
+                        </table>
+                        <table style="border-collapse: separate; border-spacing: 15px;">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ID:</th>
+                                    <th>Fecha: </th>
+                                    <th>Descuento: </th>
+                                </tr>
+                            </thead>
+                            <tbody>     
+                            Facturas:
+                                @foreach ($pedidos as $pedido)
+                                    @if($pedido->confirmado==1)
+                                        <tr>
+                                            <form class="form-floating" action="{{ route('pedido.show', ["pedido" => $pedido->id]) }}" method="get">
+                                                    <div>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-primary">Ver</button>
+                                                        </td>
+                                                    </div>
+                                            </form>
+                                            <td>{{ $pedido->id }}</td>
+                                            <td>{{ $pedido->created_at }}</td>
+                                            <td>{{ $pedido->descuento }}%</td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                                 <!--Falta boton para abrir pedido que lleve a la vista pedido con sus detalles, igual que el carrito-->
                             </tbody>
