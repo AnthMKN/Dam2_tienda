@@ -62,11 +62,16 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
                   </li>
-                  @endif
-                  @if(session()->has('pedido'))
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route("session.destroy", ["session" => session('pedido')]) }}">Quitar Carrito</a>
-                  </li>
+                  
+
+
+                    <form class="form-floating" action="{{ route("session.destroy", ["session" => session('pedido')]) }}" method="post">
+                      @csrf
+                      @method("DELETE")
+                      <li class="nav-item">
+                        <button class="nav-link" type="submit" type="submit" >Quitar Carrito</button>
+                      </li>
+                  </form> 
                   @endif
                 </ul>
 
