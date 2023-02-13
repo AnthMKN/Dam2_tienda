@@ -131,7 +131,6 @@ class PedidoController extends Controller
         $articulos = DB::table('articulos')
                         ->join("detalle_pedidos", "articulos.id","=","detalle_pedidos.id_articulo")
                         ->where("detalle_pedidos.id_pedido","=", $id_pedido)
-                        ->select("articulos.nombre")
                         ->get();
 
         return $articulos;
