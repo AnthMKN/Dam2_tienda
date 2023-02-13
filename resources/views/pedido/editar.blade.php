@@ -15,9 +15,19 @@
                                 {{ session(['status' => '']) }}
                             </div>
                         @endif
-                        <label for="nombre" class="col-4 col-form-label">Cliente:</label>
-                        <div class="col-6">
-                            <input id="nombre" name="nombre" readonly="readonly" type="text" class="form-control" value="{{ $pedido->cliente->nombre }}">
+                        <div class="form-group row">
+                            <label for="descuento" class="col-4 col-form-label">Nombre Cliente: </label>
+                            <div class="col-8">
+                                <input id="descuento" name="descuento" placeholder="0" readonly="readonly" type="text" class="form-control" value="{{ $pedido->cliente->nombre }}">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="descuento" class="col-4 col-form-label">Descuento: </label>
+                            <div class="col-8">
+                                <input id="descuento" name="descuento" placeholder="0" type="text" class="form-control">
+                            </div>
+                            
                         </div>
                             <!--<form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
                                 @csrf
@@ -80,8 +90,10 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    @php
+                                        $total = ($total * ((100 - $pedido->descuento)/100))
+                                    @endphp 
                                 </div>
-                                <!--Este es el formulario solamente con el boton de finalizar para poner 1 al pedido-->
                                 <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
                                     @csrf
                                     @method("PUT")

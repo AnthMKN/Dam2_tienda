@@ -91,6 +91,7 @@ class PedidoController extends Controller
     {
         $pedido = Pedido::find($id);
 
+        $pedido->descuento = $request->descuento;
         $pedido -> confirmado = "1";
         $pedido -> save();
         
