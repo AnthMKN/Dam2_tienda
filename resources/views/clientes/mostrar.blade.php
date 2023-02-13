@@ -62,7 +62,9 @@
                                             <td>{{ $pedido->id }}</td>
                                             <td>{{ $pedido->created_at }}</td>
                                             <td>{{ $pedido->descuento }}%</td>
-                                            <form class="form-floating" action="{{ route('recuperarPedido', ["id_pedido" => $pedido->id]) }}" method="get">
+                                            <form class="form-floating" action="{{ route('session.update', ["session" => $pedido->id]) }}" method="post">
+                                                @csrf
+                                                @method("PUT")
                                                 <div>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary">Recuperar</button>

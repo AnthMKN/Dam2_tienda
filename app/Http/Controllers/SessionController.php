@@ -14,11 +14,11 @@ class SessionController extends Controller
     {
        
     }
-    public function store(Request $request)
+    public function store($id)
     {
         session_start();
 
-        session(['pedido' => $request->]);
+        session(['pedido' => $id]);
     }
     public function show($id)
     {
@@ -28,13 +28,17 @@ class SessionController extends Controller
     {
         
     }
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        session(['pedido' => $pedido->id]);
+        session(['pedido' => $id]);
+
+        return redirect("home");
     }
     public function destroy($id)
     {
         session()->forget(['pedido']);
+
+        return redirect("home");
     }
 
 }

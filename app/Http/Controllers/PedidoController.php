@@ -50,7 +50,6 @@ class PedidoController extends Controller
         $ss=new SessionController();
 
         $ss->store($pedido->id);
-
         
         return redirect("home");
     }
@@ -94,7 +93,9 @@ class PedidoController extends Controller
         $pedido -> confirmado = "1";
         $pedido -> save();
         
-        session()->forget('pedido');
+        $ss=new SessionController();
+
+        $ss->destroy($pedido->id);
 
         return redirect("home");
     }
@@ -135,13 +136,5 @@ class PedidoController extends Controller
                         ->get();
 
         return $articulos;
-    }
-    public function recuperarPedido($id_pedido){
-        
-        session(['pedido' => $id_pedido]);
-
-        dd(session(['pedido']));
-
-        return redirect("home");
     }
  }

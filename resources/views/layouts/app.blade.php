@@ -63,6 +63,11 @@
                     <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
                   </li>
                   @endif
+                  @if(session()->has('pedido'))
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route("session.destroy", ["session" => session('pedido')]) }}">Quitar Carrito</a>
+                  </li>
+                  @endif
                 </ul>
 
 
