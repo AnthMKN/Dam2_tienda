@@ -19,8 +19,9 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
-        return "Aqui aparecen los pedidos";
+        session()->forget('pedido');
+
+        return redirect("home");;
     }
 
     /**
