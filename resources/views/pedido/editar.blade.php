@@ -97,6 +97,14 @@
                                         </div>
                                     </div>
                                 </form>
+
+                                <form class="form-floating" action="{{ route('pedido.index')}}" method="get">
+                                    <div class="form-group row" align="right">
+                                        <div class="offset-4 col-8">
+                                            <button type="submit" class="btn btn-primary">Dejar Abierto</button>
+                                        </div>
+                                    </div>
+                                </form>
                     </div>
                 </div>
             </div>

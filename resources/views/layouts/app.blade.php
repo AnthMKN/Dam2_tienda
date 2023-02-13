@@ -62,7 +62,6 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
                   </li>
-                  @endif
                 </ul>
 
 
