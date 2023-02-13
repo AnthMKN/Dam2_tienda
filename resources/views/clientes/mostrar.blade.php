@@ -48,7 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>     
-                            Pedidos:
+                            <h3>Pedidos:</h3>
                                 @foreach ($pedidos as $pedido)
                                     @if($pedido->confirmado==0)
                                         <tr>
@@ -59,16 +59,16 @@
                                                         </td>
                                                     </div>
                                             </form>
-                                            <form class="form-floating" action="{{ route('recuperarPedido', ["id_pedido" => $pedido->id]) }}" method="get">
-                                                <div>
-                                                    <td>
-                                                        <button type="submit" class="btn btn-primary">Resuperar</button>
-                                                    </td>
-                                                </div>
-                                            </form>
                                             <td>{{ $pedido->id }}</td>
                                             <td>{{ $pedido->created_at }}</td>
                                             <td>{{ $pedido->descuento }}%</td>
+                                            <form class="form-floating" action="{{ route('recuperarPedido', ["id_pedido" => $pedido->id]) }}" method="get">
+                                                <div>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-primary">Recuperar</button>
+                                                    </td>
+                                                </div>
+                                            </form>
                                         </tr>
                                     @endif
                                 @endforeach
@@ -85,7 +85,7 @@
                                 </tr>
                             </thead>
                             <tbody>     
-                            Facturas:
+                                <h3>Facturas: </h3>
                                 @foreach ($pedidos as $pedido)
                                     @if($pedido->confirmado==1)
                                         <tr>

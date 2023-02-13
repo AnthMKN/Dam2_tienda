@@ -21,12 +21,6 @@ class PedidoController extends Controller
     {
         
     }
-    public function recuperarPedido($id_pedido){
-
-        session(['pedido' => $id_pedido]);
-
-        return redirect("home");
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -140,5 +134,13 @@ class PedidoController extends Controller
                         ->get();
 
         return $articulos;
+    }
+    public function recuperarPedido($id_pedido){
+        
+        session(['pedido' => $id_pedido]);
+
+        dd(session(['pedido']));
+
+        return redirect("home");
     }
  }
