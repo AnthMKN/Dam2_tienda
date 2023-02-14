@@ -22,7 +22,7 @@ class SessionController extends Controller
     }
     public function show($id)
     {
-       dd($id);
+
     }
     public function edit($id)
     {
@@ -36,8 +36,9 @@ class SessionController extends Controller
     }
     public function destroy($id)
     {
-        session_unset();
-
+        session()->forget('pedido');
+        session()->flush();
+        
         return redirect("home");
     }
 

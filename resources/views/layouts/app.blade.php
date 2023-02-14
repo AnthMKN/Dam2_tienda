@@ -63,13 +63,11 @@
                     <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
                   </li>
                   
-
-
                     <form class="form-floating" action="{{ route("session.destroy", ["session" => session('pedido')]) }}" method="post">
                       @csrf
                       @method("DELETE")
                       <li class="nav-item">
-                        <button class="nav-link" type="submit" type="submit" >Quitar Carrito</button>
+                        <button class="nav-link" type="submit" type="submit" >Eliminar Carrito</button>
                       </li>
                   </form> 
                   @endif
