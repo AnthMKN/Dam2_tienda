@@ -23,10 +23,6 @@
                             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addAlPedido - {{$articulo->id}}">
                                 Al carrito
                             </button>
-                        @else
-                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#crearPedido">
-                                Nuevo pedido
-                            </button>
                         @endif
                     @endif
             </div>
@@ -37,47 +33,6 @@
         </div>
     </div>
 </div>
-{{-- GRUPO DE AMIGOS INVISIBLES --}}
-
-
- <!--Modal Crear Pedido-->
-<div class="modal fade" id="crearPedido" tabindex="-1" role="dialog" aria-labelledby="crearPedidoLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="crearPedidoLabel">Crear pedido</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-        
-            <form class="form-floating" action="{{ route("pedido.store") }}" method="post">
-                @csrf
-                @method("POST")
-                <div class="form-group row">
-                    <label for="id_cliente" class="col-4 col-form-label">Cliente:</label>
-                    <div class="col-8">
-                        <select id="id_cliente" name="id_cliente" class="col-4 col-form-label" id="lang">
-                            @foreach ($clientes as $cliente)
-                            <option value ={{$cliente->id}}>{{$cliente->nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <input id="confirmado" name="confirmado" type="hidden" value=0>
-                <input id="descuento" name="descuento" type="hidden" value=0>
-                <div class="form-group row">
-                    <div class="offset-4 col-8">
-                        <button type="submit" class="btn btn-primary">Crear pedido</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!--Modal añadir al Pedido-->
   <div class="modal fade" id="addAlPedido - {{ $articulo->id }}" tabindex="-1" role="dialog" aria-labelledby="addAlPedidoLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

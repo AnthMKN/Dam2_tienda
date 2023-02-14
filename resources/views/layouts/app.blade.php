@@ -67,7 +67,7 @@
                       @csrf
                       @method("DELETE")
                       <li class="nav-item">
-                        <button class="nav-link" type="submit" type="submit" >Eliminar Carrito</button>
+                        <button class="btn btn-outline-dark" type="submit" type="submit" >Eliminar Carrito</button>
                       </li>
                   </form> 
                   @endif
