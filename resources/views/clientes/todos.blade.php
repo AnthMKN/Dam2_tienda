@@ -18,7 +18,11 @@
                                     </div>
                                     <div align="right"><a href="{{ route("cliente.show", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Ver</a></div>
                                     <div align="right"><a href="{{ route("cliente.edit", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Editar</a></div>
-                                    <div align="right"><a href="{{ route("cliente.edit", ["cliente" => $cliente->id])}}" type="button" class="btn btn-outline-dark">Borrar</a></div>
+                                    <div align="right"><form class="form-floating" action="{{ route("cliente.destroy", ["cliente" => $cliente->id]) }}" method="post">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="btn btn-outline-dark" type="submit" type="submit" >Eliminar</button>
+                                    </form></div>
                                 </li>
                             @endforeach
                         </ol>

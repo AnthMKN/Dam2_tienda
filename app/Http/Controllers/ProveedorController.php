@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ProveedorController extends Controller
 {
@@ -82,7 +83,7 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $proovedor = Articulo::find($id);
+        $proovedor = Proveedor::find($id);
 
         $proovedor->nombre = $request->nombre;
         $proovedor->telefono = $request->telefono;
@@ -102,6 +103,11 @@ class ProveedorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $proveedor = Proveedor::find($id);
+
+        $proveedor->deleted_at = Carbon::now();
+
+        $proveedor->save();
+        return redirect()->back();
     }
 }

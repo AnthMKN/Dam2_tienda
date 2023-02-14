@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Pedidos;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -96,7 +97,7 @@ class ClienteController extends Controller
         $cliente->direccion = $request->direccion;
 
         $cliente->save();
-        return redirect("home");
+        return redirect()->back();
     }
 
     /**
@@ -107,6 +108,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        $cliente->deleted_at = Carbon::now();
+
+        $cliente->save();
+        return redirect()->back();
     }
 }

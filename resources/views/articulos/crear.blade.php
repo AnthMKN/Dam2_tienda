@@ -30,7 +30,9 @@
                                     <div class="col-8">
                                         <select id="id_proveedor" name="id_proveedor" class="col-4 col-form-label" id="lang">
                                             @foreach ($proveedores as $proveedor)
-                                            <option value ={{$proveedor->id}}>{{$proveedor->nombre}}</option>
+                                                @if($proveedor->delete_at===null)
+                                                    <option value ={{$proveedor->id}}>{{$proveedor->nombre}}</option>
+                                                @endif
                                             @endforeach
                                         </select>   
                                     </div>

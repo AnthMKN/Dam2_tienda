@@ -56,7 +56,9 @@
                     <div class="col-8">
                         <select id="id_cliente" name="id_cliente" class="col-4 col-form-label" id="lang">
                             @foreach ($clientes as $cliente)
-                            <option value ={{$cliente->id}}>{{$cliente->nombre}}</option>
+                                @if($cliente->delete_at===null)
+                                    <option value ={{$cliente->id}}>{{$cliente->nombre}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
