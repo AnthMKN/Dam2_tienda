@@ -37,7 +37,7 @@ class SessionController extends Controller
     public function destroy($id)
     {
         session()->forget('pedido');
-        session()->flush();
+        //session()->flush();
         
         return redirect("home");
     }

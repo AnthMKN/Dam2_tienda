@@ -24,7 +24,7 @@
                                                 <th>Nombre Articulo</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio Unitario</th>
-                                                <th>Total</th>
+                                                <th>Sub total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -47,6 +47,11 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="form-group row" align="right">
+                                        <div class="offset-4 col-8">
+                                            <label for="total" class="col-4 col-form-label">Total: {{$total}}€</label>
+                                        </div>
+                                    </div>
                                 </div>  
                     </div>
                 </div>

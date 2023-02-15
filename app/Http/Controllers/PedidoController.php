@@ -9,6 +9,7 @@ use App\Models\DetallePedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
+use PDF;
 
 class PedidoController extends Controller
 {
@@ -88,6 +89,7 @@ class PedidoController extends Controller
     public function update(Request $request, $id)
     {
         $pedido = Pedido::find($id);
+        $this->generarPDF($pedido->id);
 
         $pedido->descuento = $request->descuento;
         $pedido -> confirmado = "1";
@@ -136,5 +138,22 @@ class PedidoController extends Controller
                         ->get();
 
         return $articulos;
+    }
+
+    public function generarPDF($id)
+    {
+        $pedido = // Obtener el pedido correspondiente al ID
+        $detallesPedido = // Obtener los detalles del pedido
+        $articulos = // Obtener los artículos del pedido
+        $total = 0;
+
+        // Renderizar la vista en una variable
+        $html = view('pedido.mostrar', compact('pedido', 'detallesPedido', 'articulos', 'total'))->render();
+
+        // Crear el objeto PDF con la vista renderizada
+        $pdf = PDF::loadHtml($html);
+
+        // Descargar el archivo PDF
+        return $pdf->download('pedido_' . $id . '.pdf');
     }
  }
