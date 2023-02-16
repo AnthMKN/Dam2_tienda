@@ -13,7 +13,7 @@ use App\Models\Pedido;
 use App\Models\DetallePedido;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SorteoController;
-use App\Http\Controllers\IntromasivaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +34,9 @@ Route::get('/', function () {
         return view('welcome'); 
     }
 });
-//Rutas de articulo
+
+Route::get('pedido/pdf/{id_pedido}', [\App\Http\Controllers\PedidoController::class, 'pdf'])->name('pedido.pdf');
+
 
 //Prototipo parece que funciona
 Route::middleware(['SessionCheck'])->group(function ()  {
@@ -58,6 +60,7 @@ Route::middleware(['SessionCheck'])->group(function ()  {
 
     Route::resource("session", \App\Http\Controllers\SessionController::class);
 
+    
  });
 
 
@@ -94,7 +97,7 @@ Route::middleware(['SessionCheck'])->group(function ()  {
 });*/
 
 //Route::get('grupos/{grupoid}/intromasiva', [IntromasivaController::class,"intro"])->name("grupos.intromasiva");
-Route::post('grupos/{grupoid}/store', [IntromasivaController::class, "store"])->name("grupos.storemasiva");
+//Route::post('grupos/{grupoid}/store', [IntromasivaController::class, "store"])->name("grupos.storemasiva");
 
 Route::get('about', function () {
     return view("about.index");

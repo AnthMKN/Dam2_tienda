@@ -94,7 +94,7 @@
                                 <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
                                     @csrf
                                     @method("PUT")
-                                    </div>
+                                    
                                     <div class="form-group row" align="right">
                                         <div class="offset-4 col-8">
                                             <label for="total" class="col-4 col-form-label">Total: {{$total}}€</label>
@@ -107,13 +107,25 @@
                                     </div>
                                 </form>
 
-                                <form class="form-floating" action="{{ route('pedido.index')}}" method="get">
+                                <form class="form-floating" action="{{ route('pedido.pdf', ["id_pedido" => session('pedido') ]) }}" method="get">
                                     <div class="form-group row" align="right">
+                                        <div class="offset-4 col-8">
+                                            <button type="submit" class="btn btn-primary">Descargar PDF</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <form class="form-floating" action="{{ route('session.destroy', ["session" => session('pedido') ]) }}" method="post">
+                                    @csrf
+                                    @method("DELETE")
+                                    <div class="form-group row" align="right"> 
                                         <div class="offset-4 col-8">
                                             <button type="submit" class="btn btn-primary">Dejar Abierto</button>
                                         </div>
                                     </div>
                                 </form>
+
+                                
                     </div>
                 </div>
             </div>
