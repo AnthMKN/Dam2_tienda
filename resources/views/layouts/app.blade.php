@@ -36,7 +36,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
 <!-- Lado izquierdo Of Navbar -->
-@if(Auth::check())
+              @if(Auth::check())
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -57,7 +57,7 @@
                         </li>
                     </ul>
                   </li>
-    @endif              
+              @endif              
                   @if(session()->has('pedido'))
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
@@ -72,8 +72,6 @@
                   </form> 
                   @endif
                 </ul>
-
-
 
 <!-- Lado derecho Of Navbar -->
                                    <ul class="navbar-nav ms-auto">
@@ -111,15 +109,9 @@
                                         </li>
                                     @endguest
                                 </ul>
-
-
-
               </div>
             </div>
-
           </nav>
-
-
         <main class="py-4">
             @yield('content')
         </main>

@@ -74,7 +74,6 @@
                                         </tr>
                                     @endif
                                 @endforeach
-                                <!--Falta boton para abrir pedido que lleve a la vista pedido con sus detalles, igual que el carrito-->
                             </tbody>
                         </table>
                         <table style="border-collapse: separate; border-spacing: 15px;">
@@ -104,7 +103,6 @@
                                         </tr>
                                     @endif
                                 @endforeach
-                                <!--Falta boton para abrir pedido que lleve a la vista pedido con sus detalles, igual que el carrito-->
                             </tbody>
                         </table>
                 </div>
@@ -113,7 +111,6 @@
     </div>
 </div>
 @endsection
-
 
   <!-- Modal borrar -->
 <div class="modal fade" id="borrar{{ $cliente->id }}" tabindex="-1">

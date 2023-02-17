@@ -62,7 +62,6 @@ class DetallePedidoController extends Controller
     public function show($id)
     {
         //
-        //return JSON("detallePedidio.mostrar", ["detallePedido" => DetallePedido::find($id)]);
     }
 
     /**
@@ -86,8 +85,6 @@ class DetallePedidoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        //dd($request->cantidad);
         $d_pedido = DetallePedido::find($id);
 
         $restablecerStock = $d_pedido->cantidad - $request->cantidad;

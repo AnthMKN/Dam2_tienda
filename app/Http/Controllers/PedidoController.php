@@ -127,17 +127,6 @@ class PedidoController extends Controller
         return $pedido;
     }
     public function listArticulo($id_pedido){
-
-        /*$cliente = DB::table('clientes')->join("pedidos","clientes.id","=","pedidos.id_cliente")
-                                        ->where("pedidos.id","=",session('pedido'))
-                                        ->get();
-
-        $articulos = DB::table('articulos')->join("detalle_pedidos", "articulos.id","=","detalle_pedidos.id_articulo")
-                                            ->join("pedidos","detalle_pedidos.id_pedido","=","pedidos.id")
-                                            ->where([
-                                            ["pedidos.id_cliente","=", $cliente[0]->id_cliente],
-                                            ["detalle_pedidos.id_pedido","=",session('pedido')],
-                                            ])->select("articulos.nombre")->get();*/
         
         $articulos = DB::table('articulos')
                         ->join("detalle_pedidos", "articulos.id","=","detalle_pedidos.id_articulo")
@@ -145,37 +134,5 @@ class PedidoController extends Controller
                         ->get();
         
         return $articulos;
-    }
-
-    public function generarPDF($id)
-    {
-        $pedido = Pedido::find($id);
-        $detallesPedido = DetallePedido::where('id_pedido', $id)->get();
-        $articulos = collect([]);
-        $total = 0;
-
-        foreach ($detallesPedido as $detallePedido) {
-            $articulo = $detallePedido->articulo;
-            $cantidad = $detallePedido->cantidad;
-            $precio = $articulo->precio;
-            $subtotal = $cantidad * $precio;
-            $total += $subtotal;
-            $articulos->push([
-                'id' => $articulo->id,
-                'nombre' => $articulo->nombre,
-                'cantidad' => $cantidad,
-                'precio' => $precio,
-                'subtotal' => $subtotal
-            ]);
-        }
-
-        // Renderizar la vista en una variable
-        $html = view('pedido.editar', compact('pedido', 'detallesPedido', 'articulos', 'total'))->render();
-
-        // Crear el objeto PDF con la vista renderizada
-        $pdf = PDF::loadHtml($html);
-
-        // Descargar el archivo PDF
-        return $pdf->download('pedido_' . $id . '.pdf');
     }
  }

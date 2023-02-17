@@ -62,9 +62,7 @@ class ClienteController extends Controller
         //
         $cliente = Cliente::findOrFail($id);
         $pedidos = $cliente->pedidos;
-        //añadido
 
-        //return view("clientes.mostrar", ["cliente" => Cliente::find($id)]);
         return view('clientes.mostrar', compact('cliente', 'pedidos'));
     }
 

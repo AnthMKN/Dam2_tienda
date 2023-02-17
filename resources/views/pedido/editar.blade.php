@@ -29,18 +29,6 @@
                             </div>
                             
                         </div>
-                            <!--<form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
-                                @csrf
-                                @method("PUT")
-                                <div class="form-group row">
-                                    <label for="nombre" class="col-4 col-form-label">Cliente:</label>
-                                    <div class="col-6">
-                                        <input id="nombre" name="nombre" readonly="readonly" type="text" class="form-control" value="{{ $pedido->cliente->nombre }}">
-                                    </div>
-                                </div>
-
-                                Esto es lo que decia, este formulario se cerraba abajo del boton finalizar pedido, lo dejo comentado por si necesitas los estilos o algo
-                            </form>-->
                                 <div class="form-group row">
                                     <table>
                                         <thead>

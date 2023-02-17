@@ -36,8 +36,7 @@ class SessionController extends Controller
     }
     public function destroy($id)
     {
-        session()->forget('pedido');//Al destruir el carrito se deberian de devolver los stocks
-        //session()->flush();
+        session()->forget('pedido');
         
         return redirect("home");
     }
