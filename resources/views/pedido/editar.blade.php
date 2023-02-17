@@ -1,7 +1,7 @@
 @extends('layouts.app')
-                                            @php 
-                                                $iteracion=0;
-                                            @endphp
+    @php 
+        $iteracion=0;
+    @endphp
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -82,6 +82,7 @@
                                                     <td>
                                                         <button type="submit" class="btn btn-primary">Borrar</button>
                                                     </td>
+                                                    
                                                 </form>
                                             </tr>
                                             @php
@@ -91,41 +92,42 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
-                                    @csrf
-                                    @method("PUT")
-                                    
-                                    <div class="form-group row" align="right">
-                                        <div class="offset-4 col-8">
-                                            <label for="total" class="col-4 col-form-label">Total: {{$total}}€</label>
-                                        </div>
+                                <div class="form-group row" align="right">
+                                    <div class="offset-4 col-8">
+                                        <label for="total" class="col-4 col-form-label">Total: {{$total}}€</label>
                                     </div>
-                                    <div class="form-group row" align="right">
-                                        <div class="offset-4 col-8">
-                                            <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <form class="form-floating" action="{{ route('pedido.pdf', ["id_pedido" => session('pedido') ]) }}" method="get">
-                                    <div class="form-group row" align="right">
-                                        <div class="offset-4 col-8">
-                                            <button type="submit" class="btn btn-primary">Descargar PDF</button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <form class="form-floating" action="{{ route('session.destroy', ["session" => session('pedido') ]) }}" method="post">
-                                    @csrf
-                                    @method("DELETE")
-                                    <div class="form-group row" align="right"> 
-                                        <div class="offset-4 col-8">
-                                            <button type="submit" class="btn btn-primary">Dejar Abierto</button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th> <form class="form-floating" action="{{ route('session.destroy', ["session" => session('pedido') ]) }}" method="post">
+                                                @csrf
+                                                @method("DELETE")
+                                                <div class="form-group row" align="right"> 
+                                                    <div class="offset-4 col-8">
+                                                        <button type="submit" class="btn btn-primary">Dejar Abierto</button>
+                                                    </div>
+                                                </div>
+                                            </form></th>
+                                            <th><form class="form-floating" action="{{ route('pedido.pdf', ["id_pedido" => $pedido->id ]) }}" method="get">
+                                                <div class="form-group row" align="right">
+                                                    <div class="offset-4 col-8">
+                                                        <button type="submit" class="btn btn-primary">Descargar PDF</button>
+                                                    </div>
+                                                </div>
+                                            </form></th>
+                                            <th><form class="form-floating" action="{{ route('pedido.update', ["pedido" => $pedido->id]) }}" method="post">
+                                                @csrf
+                                                @method("PUT")
+                                                <div class="form-group row" align="right">
+                                                    <div class="offset-4 col-8">
+                                                        <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
+                                                    </div>
+                                                </div>
+                                            </form></th>
+                                        </tr>
+                                    </thead>
+                                </table>                
                     </div>
                 </div>
             </div>

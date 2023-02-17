@@ -52,6 +52,13 @@
                                             <label for="total" class="col-4 col-form-label">Total: {{$total}}€</label>
                                         </div>
                                     </div>
+                                    <form class="form-floating" action="{{ route('pedido.pdf', ["id_pedido" => $pedido->id ]) }}" method="get">
+                                        <div class="form-group row" align="right">
+                                            <div class="offset-4 col-8">
+                                                <button type="submit" class="btn btn-primary">Descargar PDF</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>  
                     </div>
                 </div>

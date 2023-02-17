@@ -10,8 +10,15 @@
 <body>
 @php 
     $iteracion=0;
+
+
 @endphp
+@if($pedido->confirmado==1)
+    Factura   
+@else
     Presupuesto
+    
+@endif
 
     <table style="border-collapse: separate; border-spacing: 15px;">
         <thead>
