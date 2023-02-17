@@ -96,7 +96,6 @@ class PedidoController extends Controller
     public function update(Request $request, $id)
     {
         $pedido = Pedido::find($id);
-        //$this->generarPDF($pedido->id);
 
         $pedido->descuento = $request->descuento;
         $pedido -> confirmado = "1";
