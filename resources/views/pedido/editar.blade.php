@@ -45,6 +45,7 @@
                                     <table>
                                         <thead>
                                             <tr>
+                                                <th>Imagen</th>
                                                 <th>Nombre Articulo</th>
                                                 <th>Cantidad</th>
                                                 <th></th>
@@ -58,6 +59,7 @@
                                             @endphp 
                                             @foreach ($detallesPedido as $d_pedido)
                                             <tr>
+                                                <td><a class="nav-link" href="{{ route("articulo.show", ["articulo" => $articulos[$iteracion]->id_articulo]) }}"><img src="{{$articulos[$iteracion]->foto}}" width="80" height="80"></a></td>
                                                 <td>{{ $articulos[$iteracion]->nombre}}</td>
                                                 <form class="form-floating" action="{{ route('detallePedido.update', ["detallePedido" => $d_pedido->id]) }}" method="post">
                                                     @csrf

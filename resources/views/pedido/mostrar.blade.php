@@ -21,6 +21,7 @@
                                     <table style="border-collapse: separate; border-spacing: 15px;">
                                         <thead>
                                             <tr>
+                                                <th>Imagen</th>
                                                 <th>Nombre Articulo</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio Unitario</th>
@@ -33,7 +34,8 @@
                                             @endphp 
                                             @foreach ($detallesPedido as $d_pedido)
                                             <tr>
-                                                <td><a class="nav-link" href="{{ route("articulo.show", ["articulo" => $articulos[$iteracion]->id_articulo]) }}">{{$articulos[$iteracion]->nombre}}</a></td>
+                                                <td><a class="nav-link" href="{{ route("articulo.show", ["articulo" => $articulos[$iteracion]->id_articulo]) }}"><img src="{{$articulos[$iteracion]->foto}}" width="80" height="80"></a></td>
+                                                <td>{{$articulos[$iteracion]->nombre}}</td>
                                                 <td>{{$d_pedido->cantidad}}</td>
                                                 <td>{{$d_pedido->precio}}€</td>
                                                 <td>{{$d_pedido->precio * $d_pedido->cantidad}}€</td>
