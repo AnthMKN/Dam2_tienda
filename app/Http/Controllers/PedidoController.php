@@ -143,7 +143,7 @@ class PedidoController extends Controller
                         ->join("detalle_pedidos", "articulos.id","=","detalle_pedidos.id_articulo")
                         ->where("detalle_pedidos.id_pedido","=", $id_pedido)
                         ->get();
-
+        
         return $articulos;
     }
 

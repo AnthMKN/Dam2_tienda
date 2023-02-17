@@ -33,7 +33,7 @@
                                             @endphp 
                                             @foreach ($detallesPedido as $d_pedido)
                                             <tr>
-                                                <td><a class="nav-link" href="{{ route("articulo.show", ["articulo" => $articulos[$iteracion]->id]) }}">{{$articulos[$iteracion]->nombre}}</a></td>
+                                                <td><a class="nav-link" href="{{ route("articulo.show", ["articulo" => $articulos[$iteracion]->id_articulo]) }}">{{$articulos[$iteracion]->nombre}}</a></td>
                                                 <td>{{$d_pedido->cantidad}}</td>
                                                 <td>{{$d_pedido->precio}}€</td>
                                                 <td>{{$d_pedido->precio * $d_pedido->cantidad}}€</td>
