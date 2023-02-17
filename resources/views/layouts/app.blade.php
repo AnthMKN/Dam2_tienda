@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-md bg-light navbar-light bg-white shadow-sm"">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src={{asset("logoInfo.png")}} width="110px">
                 </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
