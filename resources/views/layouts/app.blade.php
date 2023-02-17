@@ -36,8 +36,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
 <!-- Lado izquierdo Of Navbar -->
-
-
+@if(Auth::check())
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -58,6 +57,7 @@
                         </li>
                     </ul>
                   </li>
+    @endif              
                   @if(session()->has('pedido'))
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route("pedido.edit", ["pedido" => session('pedido')]) }}">Carrito</a>
